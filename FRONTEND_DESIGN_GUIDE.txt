@@ -1,0 +1,950 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    GUIDE COMPLET DU DESIGN FRONTEND
+                         MULTIRESAUX SARL
+═══════════════════════════════════════════════════════════════════════════════
+
+Date: 10 Décembre 2025
+Version: 1.0
+Technologies: React 19 + TypeScript + Vite + Tailwind CSS
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         1. PALETTE DE COULEURS
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ COULEURS PRINCIPALES ▓▓▓
+
+NAVY (Bleu Marine Profond) - Couleur dominante du site
+  ├─ navy-950: #020C1B    → Noir-bleu très sombre (arrière-plans profonds)
+  ├─ navy-900: #0A192F    → Bleu marine principal (header, footer, sections)
+  ├─ navy-800: #112240    → Bleu marine moyen (cartes, boutons secondaires)
+  └─ navy-700: #233554    → Bleu marine clair (bordures, hover states)
+
+ELECTRIC RED (Rouge Électrique) - Couleur d'accent principal
+  ├─ electric-red: #E63946  → Rouge vif principal (CTA, accents, icônes)
+  └─ electric-dark: #D02835 → Rouge foncé (hover sur boutons rouges)
+
+SLATE (Gris Neutre) - Couleurs de fond et texte
+  ├─ slate-50: #F8FAFC    → Blanc cassé (arrière-plan général du site)
+  ├─ slate-100: #F1F5F9   → Gris très clair (sections alternées)
+  └─ slate-light: #F1F5F9 → Identique à slate-100
+
+▓▓▓ COULEURS SECONDAIRES POUR ICÔNES/BADGES ▓▓▓
+
+  • Bleu ciel: #0EA5E9 (utilisé dans le logo, badges informatiques)
+  • Bleu moyen: #3B82F6 / #60A5FA (icônes de services informatiques)
+  • Orange: #F97316 / #FB923C (moyenne tension, industrie)
+  • Violet: #A855F7 / #C084FC (événementiel)
+  • Vert: #10B981 / #34D399 (bornes électriques, écologie)
+  • Indigo: #6366F1 (bureaux, bâtiments)
+  • Gris: #9CA3AF (maintenance, services généraux)
+  • Vert WhatsApp: #25D366 (bouton WhatsApp flottant)
+
+▓▓▓ COULEURS DE TEXTE ▓▓▓
+
+  • Texte principal: #0F172A (slate-900, texte noir sur fond clair)
+  • Texte secondaire: #64748B (gray-600, descriptions)
+  • Texte désactivé: #94A3B8 (gray-400, texte très clair)
+  • Texte sur fond sombre: #FFFFFF (blanc pur)
+  • Texte sur fond sombre secondaire: #D1D5DB (gray-300)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         2. TYPOGRAPHIE
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ POLICE DE CARACTÈRES ▓▓▓
+
+Font Family: 'Inter' (Google Fonts)
+  → Police moderne, sans-serif, excellente lisibilité
+  → Importée via CDN Google Fonts
+  → Poids disponibles: 300, 400, 500, 600, 700, 800, 900
+
+▓▓▓ HIÉRARCHIE TYPOGRAPHIQUE ▓▓▓
+
+H1 (Titres Héros)
+  • Taille: 4xl à 7xl (2.25rem à 4.5rem selon écran)
+  • Poids: 900 (Black - extra-gras)
+  • Couleur: Blanc sur fond sombre
+  • Espacement lettres: -0.025em (tracking-tighter)
+  • Hauteur ligne: 1 (leading-none, très serré)
+  • Utilisation: Section Hero principale
+
+H2 (Titres de Sections)
+  • Taille: 3xl à 4xl (1.875rem à 2.25rem)
+  • Poids: 700 (Bold)
+  • Couleur: navy-900 (#0A192F) sur fond clair
+  • Espacement: Normal
+  • Utilisation: Titres des grandes sections (Services, Catalogue, etc.)
+
+H3 (Sous-titres de Cartes)
+  • Taille: xl à 2xl (1.25rem à 1.5rem)
+  • Poids: 700 (Bold)
+  • Couleur: navy-900 avec hover en electric-red
+  • Utilisation: Titres de services, produits
+
+H4 (Petits titres)
+  • Taille: lg (1.125rem)
+  • Poids: 700 (Bold)
+  • Utilisation: Sous-sections, petites cartes
+
+Paragraphes (Body Text)
+  • Taille: base à lg (1rem à 1.125rem)
+  • Poids: 400 (Regular)
+  • Couleur: gray-600 (#64748B)
+  • Hauteur ligne: 1.75 (leading-relaxed)
+  • Utilisation: Descriptions, contenu principal
+
+Texte Petit (Small)
+  • Taille: sm à xs (0.875rem à 0.75rem)
+  • Poids: 400 à 600
+  • Couleur: gray-500 ou gray-400
+  • Utilisation: Labels, notes de bas de page
+
+Texte de Badge/Label
+  • Taille: xs (0.75rem)
+  • Poids: 700 (Bold)
+  • Transformation: uppercase
+  • Espacement lettres: 0.05em (tracking-wider)
+  • Utilisation: Tags, badges de statut
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         3. ESPACEMENTS & LAYOUT
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ SYSTÈME D'ESPACEMENT TAILWIND ▓▓▓
+
+Unité de base: 0.25rem (4px)
+  • px: 1px
+  • 1: 0.25rem (4px)
+  • 2: 0.5rem (8px)
+  • 3: 0.75rem (12px)
+  • 4: 1rem (16px)
+  • 6: 1.5rem (24px)
+  • 8: 2rem (32px)
+  • 10: 2.5rem (40px)
+  • 12: 3rem (48px)
+  • 16: 4rem (64px)
+  • 20: 5rem (80px)
+  • 24: 6rem (96px)
+
+▓▓▓ MARGES DE SECTIONS ▓▓▓
+
+  • Padding vertical sections: py-24 (6rem / 96px)
+  • Padding vertical petites sections: py-16 à py-20
+  • Marges entre éléments: mb-4 à mb-16
+  • Gap dans grilles: gap-6 à gap-8
+
+▓▓▓ CONTENEUR PRINCIPAL ▓▓▓
+
+  • Classe: container mx-auto
+  • Max-width: Auto-ajusté par Tailwind (sm: 640px, md: 768px, lg: 1024px, xl: 1280px)
+  • Padding horizontal: px-4 (mobile) → px-6 (desktop)
+
+▓▓▓ GRILLES RESPONSIVES ▓▓▓
+
+Services (Disposition en mosaïque)
+  • Mobile: 1 colonne
+  • Desktop: 4 colonnes
+  • Certaines cartes occupent 2 colonnes et 2 rangées
+  • Gap: 6 (1.5rem / 24px)
+
+Catalogue Produits
+  • Mobile: 1 colonne
+  • Desktop: 3 colonnes égales
+  • Gap: 8 (2rem / 32px)
+
+Footer
+  • Mobile: 1 colonne empilée
+  • Desktop: 4 colonnes égales
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         4. COMPOSANTS & STYLES
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ NAVBAR (BARRE DE NAVIGATION) ▓▓▓
+
+État Normal (Non-scrollé)
+  • Position: Fixed top-0 (collé en haut)
+  • Fond: Transparent
+  • Padding vertical: py-6 (1.5rem)
+  • Bordure: Aucune
+
+État Scrollé
+  • Fond: navy-950 avec 80% opacité + backdrop-blur (flou d'arrière-plan)
+  • Padding vertical: py-3 (réduit)
+  • Bordure: 1px en bas, couleur white/10 (blanc 10% opacité)
+  • Ombre: shadow-lg shadow-black/20
+
+Liens de Navigation
+  • Couleur normale: gray-300
+  • Couleur hover: white
+  • Soulignement animé: Ligne rouge électrique qui s'étend de gauche à droite
+  • Taille: text-sm (0.875rem)
+  • Poids: 600 (Semi-bold)
+
+Bouton CTA "DEVIS GRATUIT"
+  • Fond: white/5 (blanc semi-transparent)
+  • Bordure: white/20
+  • Hover: Fond electric-red, bordure electric-red
+  • Texte: Blanc, taille xs, poids 700
+  • Padding: py-3 px-6
+  • Icône: ChevronRight avec translation au hover
+
+Menu Mobile
+  • Fond: navy-900
+  • Animation: Slide depuis le haut
+  • Hauteur: Plein écran
+  • Scroll body: Désactivé quand ouvert
+
+
+▓▓▓ HERO SECTION ▓▓▓
+
+Arrière-plan
+  • Image: Photo d'équipement électrique (Unsplash)
+  • Position: 80% center (image à droite)
+  • Overlay: Dégradé complexe de navy-950 à transparent (effet split-screen)
+  • Pattern: Grille de points radiaux (40px × 40px, opacité 10%)
+
+Badge de Statut
+  • Fond: navy-800/50 avec backdrop-blur
+  • Bordure: navy-700/50
+  • Forme: Arrondie complète (rounded-full)
+  • Animation: Point rouge clignotant (animate-ping)
+  • Texte: "Intervention 24/7 au Maroc" en uppercase
+
+Titre Principal
+  • 3 lignes distinctes avec styles différents
+  • Ligne 1: Texte blanc normal
+  • Ligne 2: Dégradé de blanc à gris (bg-clip-text)
+  • Ligne 3: Texte outlined (contour seulement)
+  • Animation: fade-in-up avec délais échelonnés
+
+Boutons d'Action (CTA)
+  • Bouton principal: Fond electric-red, ombre rouge, effet de brillance au hover
+  • Bouton secondaire: Bordure blanche, fond transparent, hover avec fond white/5
+  • Icônes: ArrowRight et ChevronRight avec translation au hover
+
+Barre de Stats (Bas)
+  • Fond: navy-950/80 avec backdrop-blur
+  • Bordure supérieure: navy-800
+  • Éléments: Icônes dans des carrés navy-800, hover avec couleur d'accent
+  • Séparateurs: Lignes verticales navy-800
+
+
+▓▓▓ CARTES DE SERVICES ▓▓▓
+
+Structure
+  • Fond: Blanc
+  • Bordure: gray-100 (1px)
+  • Arrondissement: rounded-xl (0.75rem)
+  • Padding: p-8 (2rem)
+  • Ombre normale: shadow-sm
+  • Ombre hover: shadow-xl
+  • Bordure hover: blue-100
+
+Élément Décoratif
+  • Cercle en haut à droite: gray-50
+  • Au hover: Scale 150% et couleur blue-50/50
+  • Transition: Transformation fluide
+
+Icône
+  • Conteneur: bg-slate-50, 16×16 (4rem), rounded-lg, bordure gray-100
+  • Taille icône: w-8 h-8 ou w-6 h-6
+  • Couleur: Variable selon service (rouge, bleu, orange, violet, vert, etc.)
+  • Animation hover: scale-110
+
+Texte
+  • Titre: text-xl à text-2xl, bold, navy-900, hover electric-red
+  • Description: text-gray-600, text-sm, leading-relaxed
+  • Lien: "En savoir plus" en uppercase, tracking-wider, avec icône ArrowUpRight
+
+
+▓▓▓ PACKS SOLUTIONS ▓▓▓
+
+Conteneur Principal
+  • Fond: navy-900
+  • Arrondissement: rounded-2xl (1rem)
+  • Padding: p-8 à p-12
+
+Cartes Individuelles
+  • Fond: navy-800
+  • Bordure: navy-700 (1px)
+  • Hover: Fond navy-700
+  • Icône: PackageCheck avec couleur spécifique (rouge, bleu, vert)
+
+
+▓▓▓ CATALOGUE PRODUITS ▓▓▓
+
+Images Produits
+  • Hauteur: h-64 (16rem / 256px)
+  • Arrondissement: rounded-lg
+  • Overflow: hidden
+  • Hover: scale-110 (zoom × 1.1)
+  • Overlay hover: navy-900/20 (assombrissement léger)
+  • Transition: 700ms (zoom lent et fluide)
+
+Badge Tag
+  • Position: Absolu en haut à gauche
+  • Fond: white/95 avec backdrop-blur
+  • Texte: navy-900, text-xs, bold
+  • Ombre: shadow-sm
+
+Barre d'Informations (Bas)
+  • Fond: slate-100
+  • Arrondissement: rounded-xl
+  • Bordure: slate-200
+  • Icônes: Package et Truck dans cercles blancs avec couleur electric-red
+
+
+▓▓▓ SECTION ENGAGEMENTS ▓▓▓
+
+Fond: navy-900 avec texte blanc
+Grille: 5 colonnes sur desktop
+  
+Cartes d'Engagement
+  • Padding: p-4
+  • Hover: Fond navy-800/50
+  • Icônes: w-10 h-10, couleur electric-red
+  • Animation hover icône: scale-110
+  • Titre: text-lg, bold, white
+  • Description: text-gray-400, text-sm
+
+Badges de Garanties
+  • Fond: navy-800
+  • Forme: rounded-full
+  • Bordure: navy-700
+  • Icônes: Bleu ciel (#60A5FA)
+  • Disposition: Flex wrap, centré
+
+
+▓▓▓ FORMULAIRE DE CONTACT ▓▓▓
+
+Structure Générale
+  • Conteneur: Carte blanche avec shadow-2xl
+  • Layout: Split-screen (40% info / 60% formulaire)
+  • Arrondissement: rounded-2xl
+
+Panneau Gauche (Info)
+  • Fond: navy-900
+  • Texte: Blanc
+  • Élément décoratif: Cercle rouge flou en bas à droite (opacity-20, blur-3xl)
+
+Champs de Formulaire
+  • Fond: gray-50
+  • Bordure: gray-200 (1px)
+  • Focus: Bordure electric-red + ring electric-red
+  • Padding: px-4 py-3
+  • Arrondissement: rounded
+
+Champs Conditionnels
+  • Fond: blue-50
+  • Bordure: blue-100
+  • Animation: animate-fade-in (apparition douce)
+
+Bouton d'Envoi
+  • Fond: electric-red
+  • Hover: electric-dark avec translation vers le haut (-1px)
+  • Ombre: shadow-lg shadow-red-200
+  • Texte: Blanc, bold, py-4
+  • Icône: Send
+
+
+▓▓▓ FOOTER ▓▓▓
+
+Structure
+  • Fond: navy-900
+  • Bordure supérieure: navy-800
+  • Grille: 4 colonnes sur desktop
+  • Padding: py-16
+
+Liens
+  • Couleur: gray-400
+  • Hover: white avec translation-x-1
+  • Icône: ArrowRight rouge devant chaque lien
+  • Taille: text-sm
+
+Réseaux Sociaux
+  • Boutons carrés: 10×10 (2.5rem)
+  • Fond: navy-800
+  • Hover: electric-red
+  • Icônes: Linkedin, Instagram
+
+Contact
+  • Icônes: MapPin, Mail, Phone (electric-red)
+  • Taille: w-5 h-5
+
+Mentions Légales
+  • Police: font-mono (monospace)
+  • Taille: text-xs
+  • Couleur: gray-500
+
+
+▓▓▓ BOUTON WHATSAPP FLOTTANT ▓▓▓
+
+Position: Fixed bottom-6 right-6
+  • Z-index: 50 (au-dessus de tout)
+  • Fond: #25D366 (vert WhatsApp officiel)
+  • Hover: #128C7E (vert foncé)
+  • Forme: Cercle complet (rounded-full)
+  • Padding: p-4
+  • Ombre: shadow-2xl
+  • Animation hover: scale-110
+
+Tooltip
+  • Apparaît à gauche au hover
+  • Fond: Blanc avec texte gray-800
+  • Texte: "Discuter en direct"
+  • Ombre: shadow-md
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         5. ANIMATIONS & TRANSITIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ ANIMATIONS PERSONNALISÉES ▓▓▓
+
+fade-in-up
+  • Durée: 1s
+  • Easing: ease-out
+  • De: opacity 0, translateY(20px)
+  • Vers: opacity 1, translateY(0)
+  • Utilisation: Éléments du Hero avec délais échelonnés (0.1s, 0.2s, 0.4s, etc.)
+
+pulse-slow
+  • Durée: 4s
+  • Easing: cubic-bezier(0.4, 0, 0.6, 1)
+  • Répétition: Infinie
+  • Utilisation: Badge de statut "Intervention 24/7"
+
+animate-ping
+  • Animation Tailwind native
+  • Utilisation: Point rouge clignotant dans le badge de statut
+
+▓▓▓ TRANSITIONS COURANTES ▓▓▓
+
+Durées Standard
+  • Ultra-rapide: 150ms
+  • Rapide: 300ms
+  • Normale: 500ms
+  • Lente: 700ms à 1000ms (images, overlays)
+
+Types de Transitions
+  • colors: Changements de couleur (boutons, liens)
+  • all: Tout (utilisé pour effets complexes)
+  • transform: Transformations (scale, translate)
+  • opacity: Changements d'opacité
+
+Effets Hover Récurrents
+  • Boutons: Translation vers le haut + ombre accentuée
+  • Icônes: Scale 110% (agrandissement 10%)
+  • Images: Scale 110% + overlay sombre
+  • Liens: Couleur change + soulignement animé
+  • Cartes: Ombre étendue + bordure colorée
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         6. EFFETS VISUELS SPÉCIAUX
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ BACKDROP BLUR ▓▓▓
+
+Utilisation: Navbar scrollé, badges, cartes semi-transparentes
+  • Classe: backdrop-blur ou backdrop-blur-md
+  • Effet: Flou gaussien de l'arrière-plan pour effet de verre dépoli moderne
+
+▓▓▓ GRADIENTS ▓▓▓
+
+Dégradé Hero
+  • Type: bg-gradient-to-r (de gauche à droite)
+  • De: navy-950 (opaque) → navy-900/95 → navy-900/20 (transparent)
+  • Effet: Masque l'image pour créer un espace de contenu lisible
+
+Dégradé Texte
+  • Type: bg-gradient-to-r avec bg-clip-text
+  • De: white → gray-500
+  • Effet: Texte avec couleur dégradée (ligne 2 du titre Hero)
+
+Brillance Bouton
+  • Type: Pseudo-élément avec gradient horizontal
+  • Mouvement: -translate-x-full → translate-x-full
+  • Durée: 1000ms
+  • Effet: Bande lumineuse qui traverse le bouton au hover
+
+▓▓▓ OMBRES (SHADOWS) ▓▓▓
+
+Hiérarchie d'Ombres
+  • shadow-sm: Ombre très légère (cartes au repos)
+  • shadow-md: Ombre moyenne (tooltips, dropdowns)
+  • shadow-lg: Ombre large (navbar, éléments importants)
+  • shadow-xl: Ombre extra-large (cartes au hover)
+  • shadow-2xl: Ombre maximale (formulaire de contact)
+
+Ombres Colorées
+  • shadow-black/20: Ombre noire à 20% d'opacité
+  • shadow-red-900/40: Ombre rouge sombre (bouton CTA)
+  • shadow-red-700/50: Ombre rouge au hover
+  • shadow-red-200: Ombre rouge claire (bouton formulaire)
+
+▓▓▓ OVERLAYS & MASQUES ▓▓▓
+
+Pattern de Grille
+  • Image: radial-gradient (points blancs)
+  • Taille: 40px × 40px
+  • Opacité: 10%
+  • Usage: Texture subtile sur fond Hero
+
+Overlay Hover Images
+  • Couleur: navy-900 avec opacité variable (0% → 20%)
+  • Transition: 300ms
+  • Effet: Assombrissement léger au survol
+
+▓▓▓ FILTRES SVG (LOGO) ▓▓▓
+
+Filtre "glow"
+  • Type: feGaussianBlur
+  • Déviation: 1.5px
+  • Effet: Aura lumineuse autour du logo électrique
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         7. RESPONSIVE DESIGN
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ BREAKPOINTS TAILWIND ▓▓▓
+
+  • sm: 640px (Petits smartphones en paysage)
+  • md: 768px (Tablettes)
+  • lg: 1024px (Petits desktops)
+  • xl: 1280px (Grands écrans)
+  • 2xl: 1536px (Très grands écrans)
+
+▓▓▓ STRATÉGIES RESPONSIVES ▓▓▓
+
+Mobile First
+  • Classes sans préfixe = Mobile par défaut
+  • md:, lg:, xl: appliquent des styles pour écrans plus larges
+
+Typographie
+  • Titres H1: text-4xl (mobile) → md:text-6xl → lg:text-7xl
+  • Titres H2: text-3xl → md:text-4xl
+  • Corps: text-base → md:text-lg
+  • Espacement: mb-4 → md:mb-6 → lg:mb-8
+
+Layout
+  • Grilles: grid-cols-1 (mobile) → md:grid-cols-3 ou md:grid-cols-4
+  • Flex: flex-col (empilé mobile) → md:flex-row (côte à côte)
+  • Gaps: gap-4 → md:gap-6 → lg:gap-8
+
+Espacements
+  • Padding: px-4 (mobile) → md:px-6 (desktop)
+  • Sections: py-16 → md:py-24
+
+Visibilité
+  • Éléments cachés mobile: hidden md:block (barre de stats Hero)
+  • Menu mobile: visible mobile, caché desktop (lg:hidden)
+  • Navigation desktop: hidden lg:flex
+
+Images & Médias
+  • Hauteur Hero: min-h-[700px] pour garantir une hauteur minimale
+  • Position image Hero: Centrée mobile, décalée droite desktop
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         8. ACCESSIBILITÉ & UX
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ NAVIGATION CLAVIER ▓▓▓
+
+  • Focus visible: Tous les éléments interactifs ont focus:ring
+  • Ordre de tabulation: Logique et séquentiel
+  • Bouton menu mobile: aria-label="Toggle Menu"
+
+▓▓▓ LABELS SÉMANTIQUES ▓▓▓
+
+  • Logo SVG: aria-label="Logo Multiresaux"
+  • Bouton WhatsApp: aria-label="Contact sur WhatsApp"
+  • Liens: Texte descriptif ou aria-label
+
+▓▓▓ CONTRASTES ▓▓▓
+
+  • Texte sur fond clair: navy-900 (#0A192F) → Ratio > 7:1 (AAA)
+  • Texte sur fond sombre: white (#FFFFFF) → Ratio maximal
+  • Liens: Changement de couleur au hover pour feedback visuel
+
+▓▓▓ ÉTATS INTERACTIFS ▓▓▓
+
+  • Hover: Changement visible (couleur, échelle, ombre)
+  • Active: Feedback immédiat
+  • Focus: Bordure ou ring de focus visible
+  • Disabled: Opacité réduite + cursor-not-allowed
+
+▓▓▓ SCROLL BEHAVIOR ▓▓▓
+
+  • Navigation anchor: Scroll fluide (scroll-smooth)
+  • Lock scroll: Body overflow hidden quand menu mobile ouvert
+  • Sticky navbar: Fixed position pour toujours accessible
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         9. ICONOGRAPHIE
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ BIBLIOTHÈQUE: LUCIDE-REACT ▓▓▓
+
+Icônes de Services
+  • Zap (Éclair): Électricité CFO - rouge électrique
+  • Server (Serveur): Informatique/CFA - bleu
+  • Factory (Usine): Moyenne Tension - orange
+  • Mic2 (Micro): Événementiel - violet
+  • BatteryCharging: Bornes électriques - vert
+  • Building2: Bureaux/Bâtiments - indigo
+  • Wrench (Clé): Maintenance - gris
+
+Icônes de Navigation
+  • Phone: Téléphone (navbar, footer)
+  • Menu/X: Toggle menu mobile
+  • ChevronRight: Flèches de navigation
+  • ArrowRight/ArrowUpRight: Liens d'action
+
+Icônes de Contact
+  • MapPin: Adresse
+  • Mail: Email
+  • MessageCircle: WhatsApp
+  • Linkedin/Instagram: Réseaux sociaux
+
+Icônes d'Engagement
+  • Shield: Sécurité
+  • Clock: Rapidité
+  • Award: Qualité
+  • CheckCircle: Conformité
+  • PenTool: Solutions
+  • HeartHandshake: Confiance
+  • FileCheck: Certification
+
+Icônes de Catalogue
+  • Package: Stock
+  • Truck: Livraison
+  • ShieldCheck: Garantie
+  • Container: Conteneurs
+  • Droplets: Sanitaire
+
+Autres
+  • Send: Envoi formulaire
+  • PackageCheck: Packs solutions
+
+▓▓▓ TAILLES D'ICÔNES ▓▓▓
+
+  • w-3 h-3 (0.75rem): Petites icônes inline
+  • w-4 h-4 (1rem): Icônes standard dans texte
+  • w-5 h-5 (1.25rem): Icônes moyennes (footer, badges)
+  • w-6 h-6 (1.5rem): Icônes services secondaires
+  • w-8 h-8 (2rem): Icônes services principales
+  • w-10 h-10 (2.5rem): Grandes icônes d'engagement
+  • w-12 h-12 (3rem): Logo navbar
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         10. LOGO & IDENTITÉ VISUELLE
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ COMPOSITION DU LOGO ▓▓▓
+
+Éléments
+  1. Anneau bleu (Background Ring)
+     - Couleur: #0EA5E9 (bleu ciel)
+     - Stroke: 4px
+     - Forme: Ellipse légèrement rotée (-10°)
+     - Opacité: 80%
+     - Symbolise: Réseau, connexion, circuits
+
+  2. Ligne de Pulse Électrique
+     - Couleur: #E63946 (rouge électrique)
+     - Stroke: 8px (épais)
+     - Forme: Zigzag ascendant (comme un signal électrique)
+     - Filtre: Glow (effet de brillance)
+     - Symbolise: Énergie, électricité, dynamisme
+
+  3. Pointe de Flèche
+     - Couleur: #E63946 (rouge électrique)
+     - Stroke: 8px
+     - Position: Extrémité droite du pulse
+     - Filtre: Glow
+     - Symbolise: Direction, progression, avenir
+
+▓▓▓ USAGE DU LOGO ▓▓▓
+
+Tailles
+  • Navbar: w-10 h-10 (mobile) → w-12 h-12 (desktop)
+  • Footer: w-10 h-10
+  • Responsive: Classe personnalisée className prop
+
+Effet Hover
+  • Glow rouge: Aura rouge électrique apparaît en fond
+  • Opacité: 0% → 100%
+  • Blur: xl
+  • Transition: 500ms
+
+ViewBox: 0 0 100 100 (format carré)
+Format: SVG inline React component
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         11. ÉTATS & INTERACTIONS
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ BOUTONS ▓▓▓
+
+Bouton CTA Principal (Rouge)
+  • Normal: bg-electric-red, shadow-lg shadow-red-900/40
+  • Hover: Translation -1px (monte), shadow étendu red-700/50
+  • Active: Légère compression
+  • Animation: Brillance traversante (gradient blanc)
+
+Bouton Secondaire (Transparent)
+  • Normal: Bordure white/20, fond transparent
+  • Hover: Bordure white/80, fond white/5
+  • Texte: Blanc constant
+
+Bouton Tertiaire (Blanc)
+  • Normal: Fond white/5, bordure white/20
+  • Hover: Fond electric-red, bordure electric-red
+  • Texte: Blanc constant
+
+▓▓▓ LIENS ▓▓▓
+
+Liens de Navigation
+  • Normal: gray-300
+  • Hover: white + ligne rouge qui s'étend
+  • Animation ligne: scale-x-0 → scale-x-100, origin-left
+
+Liens d'Action ("En savoir plus")
+  • Normal: navy-900 ou electric-red selon contexte
+  • Hover: electric-red + icône translate-x
+  • Style: Uppercase, tracking-wider, font-bold
+
+Liens Footer
+  • Normal: gray-400
+  • Hover: white + translate-x-1
+  • Icône: ArrowRight rouge devant
+
+▓▓▓ CHAMPS DE FORMULAIRE ▓▓▓
+
+État Normal
+  • Fond: gray-50
+  • Bordure: gray-200 (1px)
+
+État Focus
+  • Bordure: electric-red
+  • Ring: electric-red (1px)
+  • Outline: none (désactivé pour custom focus)
+
+État Rempli
+  • Même style que normal
+
+État Erreur (si implémenté)
+  • Bordure: red-500
+  • Texte helper: red-600
+
+▓▓▓ CARTES ▓▓▓
+
+État Normal
+  • Fond: white
+  • Bordure: gray-100
+  • Ombre: shadow-sm
+
+État Hover
+  • Ombre: shadow-xl
+  • Bordure: blue-100
+  • Titre: Couleur → electric-red
+  • Élément décoratif: Scale × 1.5
+  • Icône: Scale × 1.1
+
+▓▓▓ IMAGES ▓▓▓
+
+État Normal
+  • Scale: 1
+  • Overlay: 0% opacité
+
+État Hover
+  • Scale: 1.1 (zoom)
+  • Overlay: navy-900/20
+  • Transition: 700ms (lente pour fluidité)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         12. PERFORMANCE & OPTIMISATION
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ CHARGEMENT DES RESSOURCES ▓▓▓
+
+Police Inter
+  • Preconnect: fonts.googleapis.com et fonts.gstatic.com
+  • Display: swap (affiche police système puis swap)
+  • Poids: Seulement les nécessaires chargés
+
+Tailwind CSS
+  • CDN: cdn.tailwindcss.com
+  • Configuration inline: Pas de build séparé
+  • Production: Devrait être compilé pour purge des classes inutilisées
+
+Images
+  • Source: Unsplash (CDN externe)
+  • Format: Paramètres d'optimisation (w=, q=, auto=format)
+  • Lazy loading: Recommandé (non implémenté actuellement)
+
+▓▓▓ ANIMATIONS ▓▓▓
+
+GPU Acceleration
+  • Transform: Utilise GPU (translate, scale, rotate)
+  • Opacity: Optimisé par navigateur
+  • Évite: left, top, width, height pour animations
+
+Will-change
+  • Non utilisé actuellement
+  • Pourrait être ajouté sur éléments animés fréquemment
+
+▓▓▓ RENDERS ▓▓▓
+
+React 19
+  • Strict Mode: Devrait être activé en dev
+  • Memo: Pourrait optimiser composants purs
+  • Lazy loading: Composants code-split si nécessaire
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         13. CONVENTIONS & BONNES PRATIQUES
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ NOMMAGE CSS (TAILWIND) ▓▓▓
+
+Structure des Classes
+  1. Layout (display, position, flex, grid)
+  2. Espacement (margin, padding)
+  3. Taille (width, height)
+  4. Typographie (font, text)
+  5. Couleurs (bg, text, border)
+  6. Effets (shadow, rounded, opacity)
+  7. Transitions & animations
+  8. États (hover:, focus:, group-hover:)
+
+Ordre Responsive
+  • Base (mobile) → md: → lg: → xl:
+
+▓▓▓ COMPOSANTS REACT ▓▓▓
+
+Structure
+  • Imports en haut
+  • Interfaces/Types
+  • Composant avec typage TypeScript
+  • Export en bas ou inline
+
+Nommage
+  • PascalCase pour composants
+  • camelCase pour fonctions/variables
+  • SCREAMING_SNAKE_CASE pour constantes
+
+Props
+  • Interface explicite pour chaque composant
+  • Props optionnelles marquées avec ?
+
+▓▓▓ ORGANISATION FICHIERS ▓▓▓
+
+Structure Actuelle
+  /components (tous les composants UI)
+  /types.ts (types partagés)
+  App.tsx (composant racine)
+  index.tsx (entry point)
+
+Recommandations
+  • Garder composants unitaires
+  • Partager types communs
+  • Éviter duplication de code
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         14. AMÉLIORATIONS POSSIBLES
+═══════════════════════════════════════════════════════════════════════════════
+
+▓▓▓ PERFORMANCE ▓▓▓
+
+  □ Compiler Tailwind en production (purge CSS inutilisé)
+  □ Lazy load images avec attribut loading="lazy"
+  □ Optimiser images (WebP, tailles adaptatives)
+  □ Code splitting des composants
+  □ Service Worker pour cache
+
+▓▓▓ ACCESSIBILITÉ ▓▓▓
+
+  □ Tests avec screen readers
+  □ Améliorer navigation clavier
+  □ Ajouter plus d'aria-labels
+  □ Skip links pour navigation rapide
+  □ Mode sombre (dark mode)
+
+▓▓▓ UX ▓▓▓
+
+  □ Validation formulaire en temps réel
+  □ Messages d'erreur explicites
+  □ Loading states sur boutons
+  □ Toasts/notifications de succès
+  □ Animations de chargement (skeleton screens)
+
+▓▓▓ FONCTIONNALITÉS ▓▓▓
+
+  □ Envoi réel du formulaire (backend API)
+  □ Galerie de projets réalisés
+  □ Témoignages clients
+  □ Blog technique
+  □ Multi-langue (FR/AR/EN)
+
+▓▓▓ SEO ▓▓▓
+
+  □ Meta tags complètes
+  □ OpenGraph pour réseaux sociaux
+  □ Schema.org markup (LocalBusiness)
+  □ Sitemap XML
+  □ robots.txt
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         15. RÉCAPITULATIF RAPIDE
+═══════════════════════════════════════════════════════════════════════════════
+
+COULEURS CLÉS
+  Navy #0A192F (principal) | Rouge #E63946 (accent) | Gris #F8FAFC (fond)
+
+TYPOGRAPHIE
+  Inter, tailles 4xl-7xl titres, base-lg corps, poids 400-900
+
+ESPACEMENTS
+  py-24 sections | px-4/px-6 conteneurs | gap-6/gap-8 grilles
+
+ANIMATIONS
+  300-700ms transitions | fade-in-up, scale, translate hover
+
+RESPONSIVE
+  Mobile-first | Breakpoints md:768px, lg:1024px
+
+COMPOSANTS
+  Navbar fixed transparente | Hero fullscreen | Cartes shadow-xl hover
+
+ICÔNES
+  Lucide-react | w-5 à w-10 | Couleurs contextuelles
+
+EFFETS
+  Backdrop-blur | Gradients | Ombres colorées | Glow
+
+═══════════════════════════════════════════════════════════════════════════════
+                              FIN DU DOCUMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+Document généré le: 10 Décembre 2025
+Contact: MULTIRESAUX SARL
+Adresse: Hay Arsalan Rue 8, N° 14 Appt 4, Aïn Borja, Casablanca
+Téléphone: 05 22 60 36 21
+Email: info@multireseaux.ma
+
+═══════════════════════════════════════════════════════════════════════════════

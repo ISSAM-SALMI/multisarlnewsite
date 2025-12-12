@@ -1,0 +1,935 @@
+═══════════════════════════════════════════════════════════════════════════════
+                    STRUCTURE HTML COMPLÈTE DU SITE
+                         MULTIRESAUX SARL
+═══════════════════════════════════════════════════════════════════════════════
+
+Ce document décrit la structure exacte de tous les éléments HTML du site
+pour permettre à un AI de recréer un site similaire.
+
+═══════════════════════════════════════════════════════════════════════════════
+                         1. STRUCTURE GLOBALE
+═══════════════════════════════════════════════════════════════════════════════
+
+<body>
+  <div id="root">
+    
+    ┌─ NAVBAR (Header fixe en haut)
+    │
+    ├─ MAIN (Contenu principal)
+    │   │
+    │   ├─ Section #accueil (Hero)
+    │   ├─ Section #services (Services)
+    │   ├─ Section #vente-location (Catalogue)
+    │   ├─ Section #engagements (Engagements)
+    │   └─ Section #contact (Formulaire)
+    │
+    ├─ FOOTER
+    │
+    └─ WHATSAPP BUTTON (Bouton flottant)
+
+  </div>
+</body>
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         2. NAVBAR (BARRE DE NAVIGATION)
+═══════════════════════════════════════════════════════════════════════════════
+
+STRUCTURE:
+
+<header> (Fixed en haut, largeur 100%)
+  │
+  └─ <div class="container"> (Conteneur centré avec padding)
+      │
+      └─ <div> (Flex, justify-between, align-center)
+          │
+          ├─ LOGO (Lien + SVG)
+          │   └─ <a href="#">
+          │       ├─ <div> (Effet de glow au hover)
+          │       └─ <Logo /> (Composant SVG)
+          │
+          ├─ NAVIGATION DESKTOP (Caché sur mobile, visible lg:)
+          │   └─ <nav> (Flex avec gap)
+          │       └─ 5 liens:
+          │           ├─ <a href="#accueil">Accueil</a>
+          │           ├─ <a href="#services">Expertises</a>
+          │           ├─ <a href="#vente-location">Location & Vente</a>
+          │           ├─ <a href="#engagements">Engagements</a>
+          │           └─ <a href="#contact">Contact</a>
+          │
+          ├─ CTA DESKTOP (Caché sur mobile, visible lg:)
+          │   └─ <div> (Flex, gap-6)
+          │       ├─ <div> (Infos contact)
+          │       │   └─ <a href="tel:0522603621">
+          │       │       └─ Icône Phone + "05 22 60 36 21"
+          │       │
+          │       └─ <a href="#contact"> (Bouton CTA)
+          │           └─ "DEVIS GRATUIT" + Icône ChevronRight
+          │
+          └─ BOUTON MENU MOBILE (Visible mobile, caché lg:)
+              └─ <button>
+                  └─ Icône Menu ou X (toggle)
+
+MENU MOBILE (Overlay plein écran quand ouvert):
+
+<div> (Position fixed, hauteur 100vh, fond navy-900)
+  │
+  └─ <nav> (Flex column, centré)
+      │
+      ├─ 5 liens de navigation (mêmes que desktop)
+      │
+      ├─ <div> (Infos contact)
+      │   └─ Téléphone + Email
+      │
+      └─ <a> (Bouton CTA)
+          └─ "DEMANDER UN DEVIS"
+
+NOMBRE D'ÉLÉMENTS NAVBAR:
+- 1 logo
+- 5 liens de navigation
+- 1 numéro de téléphone
+- 1 bouton CTA
+- 1 bouton toggle menu mobile
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         3. SECTION HERO (#accueil)
+═══════════════════════════════════════════════════════════════════════════════
+
+STRUCTURE:
+
+<div> (Position relative, hauteur 100vh minimum, fond navy-950)
+  │
+  ├─ IMAGE DE FOND (Position absolute, couvre toute la section)
+  │   └─ <div style="background-image: url(...)">
+  │
+  ├─ OVERLAY GRADIENT (Position absolute, dégradé navy)
+  │   └─ <div class="absolute inset-0">
+  │
+  ├─ PATTERN DE GRILLE (Position absolute, points décoratifs)
+  │   └─ <div class="absolute inset-0">
+  │
+  ├─ CONTENU PRINCIPAL (Position relative, z-index supérieur)
+  │   └─ <div class="container">
+  │       └─ <div class="max-w-5xl">
+  │           │
+  │           ├─ BADGE DE STATUT
+  │           │   └─ <div> (Inline-flex, badge arrondi)
+  │           │       ├─ <span> (Point rouge clignotant)
+  │           │       └─ "Intervention 24/7 au Maroc"
+  │           │
+  │           ├─ TITRE PRINCIPAL
+  │           │   └─ <h1>
+  │           │       ├─ "VOTRE PARTENAIRE"
+  │           │       ├─ "ÉLECTRICITÉ" (avec dégradé)
+  │           │       └─ "& TECHNOLOGIES CONNECTÉES" (texte outline)
+  │           │
+  │           ├─ DESCRIPTION
+  │           │   └─ <p>
+  │           │       ├─ Texte principal
+  │           │       └─ <span> (Texte secondaire)
+  │           │
+  │           └─ BOUTONS D'ACTION
+  │               └─ <div> (Flex column/row, gap-5)
+  │                   ├─ <a href="#services"> (Bouton principal rouge)
+  │                   │   └─ "NOS SERVICES" + Icône ArrowRight
+  │                   │
+  │                   └─ <a href="#contact"> (Bouton secondaire transparent)
+  │                       └─ "DEMANDER UN DEVIS" + Icône ChevronRight
+  │
+  └─ BARRE DE STATS (Position absolute en bas)
+      └─ <div> (Fond navy-950 semi-transparent, backdrop-blur)
+          └─ <div class="container"> (Flex, justify-between)
+              │
+              ├─ STAT 1: EXPERTISE
+              │   └─ <div> (Flex, gap-3)
+              │       ├─ <div> (Icône Zap dans carré navy-800)
+              │       └─ <div> (Flex column)
+              │           ├─ "Expertise"
+              │           └─ "Haute & Basse Tension"
+              │
+              ├─ SÉPARATEUR (Ligne verticale)
+              │
+              ├─ STAT 2: QUALITÉ
+              │   └─ Structure identique avec icône CheckCircle2
+              │       ├─ "Qualité"
+              │       └─ "Normes NFC 15-100"
+              │
+              ├─ SÉPARATEUR
+              │
+              └─ STAT 3: ZONE D'INTERVENTION
+                  └─ Structure identique avec icône MapPin
+                      ├─ "Zone d'Intervention"
+                      └─ "Tout le Maroc"
+
+NOMBRE D'ÉLÉMENTS HERO:
+- 1 badge de statut
+- 1 titre (3 parties)
+- 1 paragraphe description
+- 2 boutons CTA
+- 3 statistiques avec icônes
+- 1 image de fond
+- 2 overlays décoratifs
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         4. SECTION SERVICES (#services)
+═══════════════════════════════════════════════════════════════════════════════
+
+STRUCTURE:
+
+<div> (Padding py-24, fond slate-50)
+  │
+  └─ <div class="container">
+      │
+      ├─ EN-TÊTE DE SECTION
+      │   └─ <div> (Centré, max-width, margin-bottom)
+      │       ├─ <h2>"Nos Domaines d'Intervention"</h2>
+      │       ├─ <div> (Ligne rouge décorative, hauteur 1, largeur 20)
+      │       └─ <p>"Expertise technique complète..."</p>
+      │
+      ├─ GRILLE DE SERVICES
+      │   └─ <div class="grid"> (1 colonne mobile, 4 colonnes desktop, gap-6)
+      │       │
+      │       ├─ CARTE 1: CFO (2 colonnes × 2 rangées)
+      │       │   └─ <div>
+      │       │       ├─ Élément décoratif (cercle en haut à droite)
+      │       │       ├─ <div> (Contenu, flex column)
+      │       │       │   ├─ <div> (Conteneur icône)
+      │       │       │   │   └─ Icône Zap (rouge)
+      │       │       │   ├─ <h3>"Installation Électrique CFO"</h3>
+      │       │       │   ├─ <p>Description du service</p>
+      │       │       │   └─ <a>"En savoir plus" + Icône ArrowUpRight</a>
+      │       │
+      │       ├─ CARTE 2: CFA (1 colonne × 1 rangée)
+      │       │   └─ Structure identique avec:
+      │       │       ├─ Icône Server (bleu)
+      │       │       ├─ <h3>"Installation Informatique et CFA"</h3>
+      │       │       └─ Description
+      │       │
+      │       ├─ CARTE 3: MT (1 colonne × 1 rangée)
+      │       │   └─ Icône Factory (orange)
+      │       │       └─ "Moyenne Tension (MT)"
+      │       │
+      │       ├─ CARTE 4: ÉVÉNEMENTIEL (1 colonne × 1 rangée)
+      │       │   └─ Icône Mic2 (violet)
+      │       │       └─ "Solutions pour Événementiel"
+      │       │
+      │       ├─ CARTE 5: BORNES VE (1 colonne × 1 rangée)
+      │       │   └─ Icône BatteryCharging (vert)
+      │       │       └─ "Bornes de Recharge VE"
+      │       │
+      │       ├─ CARTE 6: BUREAUX (1 colonne × 1 rangée)
+      │       │   └─ Icône Building2 (indigo)
+      │       │       └─ "Bureaux et Hangars"
+      │       │
+      │       └─ CARTE 7: MAINTENANCE (1 colonne × 1 rangée)
+      │           └─ Icône Wrench (gris)
+      │               └─ "Maintenance & Assistance"
+      │
+      └─ SECTION PACKS SOLUTIONS
+          └─ <div> (Fond navy-900, padding, arrondi)
+              │
+              ├─ EN-TÊTE PACKS
+              │   └─ <div> (Centré)
+              │       ├─ <h3>"Nos Packs Solutions"</h3>
+              │       └─ <p>"Des offres packagées..."</p>
+              │
+              └─ GRILLE DES PACKS (1 colonne mobile, 3 colonnes desktop, gap-6)
+                  │
+                  ├─ PACK 1: ÉVÉNEMENTIEL
+                  │   └─ <div> (Fond navy-800, bordure navy-700)
+                  │       ├─ <div> (Flex, icône + titre)
+                  │       │   ├─ Icône PackageCheck (rouge)
+                  │       │   └─ <h4>"Pack Événementiel"</h4>
+                  │       └─ <ul> (Liste à puces)
+                  │           ├─ "Câblage complet"
+                  │           ├─ "Coffrets de distribution"
+                  │           └─ "Groupe électrogène dimensionné"
+                  │
+                  ├─ PACK 2: BUREAU
+                  │   └─ Structure identique avec:
+                  │       ├─ Icône PackageCheck (bleu)
+                  │       ├─ <h4>"Pack Bureau"</h4>
+                  │       └─ 3 items de liste
+                  │
+                  └─ PACK 3: RECHARGE VE
+                      └─ Structure identique avec:
+                          ├─ Icône PackageCheck (vert)
+                          ├─ <h4>"Pack Recharge VE"</h4>
+                          └─ 3 items de liste
+
+NOMBRE D'ÉLÉMENTS SECTION SERVICES:
+- 1 titre de section + 1 ligne décorative + 1 description
+- 7 cartes de services (avec icônes, titres, descriptions, liens)
+- 1 section packs avec titre + description
+- 3 packs solutions (chacun avec icône, titre, 3 items de liste)
+
+TOTAL: 7 services + 3 packs = 10 cartes principales
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         5. SECTION CATALOGUE (#vente-location)
+═══════════════════════════════════════════════════════════════════════════════
+
+STRUCTURE:
+
+<div> (Padding py-24, fond blanc)
+  │
+  └─ <div class="container">
+      │
+      ├─ EN-TÊTE DE SECTION
+      │   └─ <div> (Flex row, justify-between)
+      │       │
+      │       ├─ <div> (Max-width)
+      │       │   ├─ <span>"Catalogue Professionnel"</span> (Label rouge)
+      │       │   ├─ <h2>"Vente & Location de Matériel"</h2>
+      │       │   └─ <p>Description</p>
+      │       │
+      │       └─ <a> (Bouton "Demander le catalogue PDF", caché mobile)
+      │
+      ├─ GRILLE DES PRODUITS (1 colonne mobile, 3 colonnes desktop, gap-8)
+      │   │
+      │   ├─ PRODUIT 1: GROUPES ÉLECTROGÈNES
+      │   │   └─ <div> (Flex column, hauteur complète)
+      │   │       │
+      │   │       ├─ <div> (Conteneur image, hauteur 64)
+      │   │       │   ├─ <div> (Badge "Vente & Location" + Icône Zap)
+      │   │       │   ├─ <img src="..." alt="Groupes Électrogènes">
+      │   │       │   └─ <div> (Overlay au hover)
+      │   │       │
+      │   │       ├─ <h3>"Groupes Électrogènes"</h3>
+      │   │       ├─ <p>Description du produit</p>
+      │   │       └─ <span> (Lien "Obtenir un devis" + Icône ShieldCheck)
+      │   │
+      │   ├─ PRODUIT 2: MATÉRIEL SANITAIRE
+      │   │   └─ Structure identique avec:
+      │   │       ├─ Badge + Icône Droplets
+      │   │       ├─ Image différente
+      │   │       ├─ <h3>"Matériel Sanitaire"</h3>
+      │   │       └─ Description
+      │   │
+      │   └─ PRODUIT 3: CONTENEURS
+      │       └─ Structure identique avec:
+      │           ├─ Badge + Icône Container
+      │           ├─ Image différente
+      │           ├─ <h3>"Conteneurs de Stockage"</h3>
+      │           └─ Description
+      │
+      └─ BARRE D'INFORMATIONS
+          └─ <div> (Fond slate-100, flex row, gap-6, arrondi, padding)
+              │
+              ├─ INFO 1: STOCK
+              │   └─ <div> (Flex, gap-4)
+              │       ├─ <div> (Cercle blanc avec icône Package rouge)
+              │       └─ <div>
+              │           ├─ <h4>"Stock disponible"</h4>
+              │           └─ <p>"Disponibilité immédiate..."</p>
+              │
+              ├─ INFO 2: LIVRAISON
+              │   └─ Structure identique avec:
+              │       ├─ Icône Truck (rouge)
+              │       ├─ <h4>"Livraison sur site"</h4>
+              │       └─ <p>"Partout au Maroc."</p>
+              │
+              └─ BOUTON CTA
+                  └─ <a>"Contacter le service commercial"</a>
+
+NOMBRE D'ÉLÉMENTS SECTION CATALOGUE:
+- 1 label + 1 titre + 1 description + 1 bouton en-tête
+- 3 produits (chacun avec: 1 image, 1 badge, 1 icône, 1 titre, 1 description, 1 lien)
+- 2 informations (stock + livraison) avec icônes
+- 1 bouton CTA final
+
+TOTAL: 3 produits + 2 infos + 3 CTA = 8 éléments principaux
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         6. SECTION ENGAGEMENTS (#engagements)
+═══════════════════════════════════════════════════════════════════════════════
+
+STRUCTURE:
+
+<div> (Padding py-20, fond navy-900, texte blanc)
+  │
+  └─ <div class="container">
+      │
+      ├─ GRILLE DES ENGAGEMENTS (1 col mobile, 3 col tablette, 5 col desktop, gap-8)
+      │   │
+      │   ├─ ENGAGEMENT 1: QUALITÉ
+      │   │   └─ <div> (Flex column, centré/aligné gauche, padding, hover navy-800/50)
+      │   │       ├─ Icône Shield (w-10 h-10, rouge)
+      │   │       ├─ <h3>"Qualité des installations"</h3>
+      │   │       └─ <p>"Excellence technique..."</p>
+      │   │
+      │   ├─ ENGAGEMENT 2: SÉCURITÉ
+      │   │   └─ Structure identique avec:
+      │   │       ├─ Icône CheckCircle (rouge)
+      │   │       ├─ <h3>"Sécurité & Conformité"</h3>
+      │   │       └─ Description
+      │   │
+      │   ├─ ENGAGEMENT 3: RAPIDITÉ
+      │   │   └─ Icône Clock (rouge)
+      │   │       └─ "Rapidité d'exécution"
+      │   │
+      │   ├─ ENGAGEMENT 4: MATÉRIEL CERTIFIÉ
+      │   │   └─ Icône Award (rouge)
+      │   │       └─ "Matériel certifié et durable"
+      │   │
+      │   └─ ENGAGEMENT 5: SOLUTIONS CLÉS EN MAIN
+      │       └─ Icône PenTool (rouge)
+      │           └─ "Solutions clés en main"
+      │
+      └─ SECTION GARANTIES
+          └─ <div> (Bordure top navy-700, padding-top)
+              │
+              ├─ <h3>"Nos Garanties"</h3> (Centré)
+              │
+              └─ <div> (Flex wrap, centré, gap-6)
+                  │
+                  ├─ BADGE 1: CERTIFICATION
+                  │   └─ <div> (Fond navy-800, bordure navy-700, arrondi complet, padding)
+                  │       ├─ Icône FileCheck (bleu)
+                  │       └─ "Certification BT"
+                  │
+                  ├─ BADGE 2: ÉQUIPE
+                  │   └─ Structure identique avec:
+                  │       ├─ Icône HeartHandshake (bleu)
+                  │       └─ "Équipe qualifiée"
+                  │
+                  ├─ BADGE 3: EXPÉRIENCE
+                  │   └─ Icône History (bleu)
+                  │       └─ "15 ans d'expérience"
+                  │
+                  └─ BADGE 4: ASSURANCE
+                      └─ Icône Shield (bleu)
+                          └─ "Assurance RC"
+
+NOMBRE D'ÉLÉMENTS SECTION ENGAGEMENTS:
+- 5 cartes d'engagement (chacune avec: 1 icône, 1 titre, 1 description)
+- 1 titre "Nos Garanties"
+- 4 badges de garantie (chacun avec: 1 icône, 1 texte)
+
+TOTAL: 5 engagements + 4 garanties = 9 éléments + 1 titre = 10 composants
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         7. SECTION CONTACT (#contact)
+═══════════════════════════════════════════════════════════════════════════════
+
+STRUCTURE:
+
+<div> (Padding py-24, fond slate-50, position relative)
+  │
+  ├─ ÉLÉMENT DÉCORATIF (SVG en arrière-plan)
+  │
+  └─ <div class="container"> (Position relative, z-index)
+      │
+      └─ <div class="max-w-5xl"> (Centré, carte blanche, shadow-2xl, arrondi-2xl)
+          │
+          └─ <div> (Flex column/row)
+              │
+              ├─ PANNEAU GAUCHE: INFORMATIONS (40% largeur desktop, fond navy-900)
+              │   └─ <div> (Padding, texte blanc, flex column, justify-between)
+              │       │
+              │       ├─ CONTENU PRINCIPAL
+              │       │   └─ <div>
+              │       │       ├─ <h2>"Parlons de votre projet"</h2>
+              │       │       ├─ <p>Description du service</p>
+              │       │       │
+              │       │       └─ <div> (Liste des étapes)
+              │       │           ├─ ÉTAPE 1: BUREAU D'ÉTUDE
+              │       │           │   └─ <div> (Flex, gap-4)
+              │       │           │       ├─ <div> (Ligne rouge verticale)
+              │       │           │       └─ <div>
+              │       │           │           ├─ <h4>"Bureau d'étude"</h4>
+              │       │           │           └─ <p>"Analyse technique..."</p>
+              │       │           │
+              │       │           └─ ÉTAPE 2: INSTALLATION
+              │       │               └─ Structure identique avec ligne grise
+              │       │                   ├─ <h4>"Installation"</h4>
+              │       │                   └─ <p>"Équipes qualifiées"</p>
+              │       │
+              │       └─ ÉLÉMENT DÉCORATIF
+              │           └─ <div> (Cercle rouge flou en position absolue)
+              │
+              └─ PANNEAU DROIT: FORMULAIRE (60% largeur desktop, fond blanc)
+                  └─ <div> (Padding)
+                      │
+                      └─ <form>
+                          │
+                          ├─ LIGNE 1: NOM ET SOCIÉTÉ
+                          │   └─ <div class="grid"> (2 colonnes desktop)
+                          │       ├─ <div> (Champ Nom)
+                          │       │   ├─ <label>"Nom Complet"</label>
+                          │       │   └─ <input type="text">
+                          │       │
+                          │       └─ <div> (Champ Société)
+                          │           ├─ <label>"Société"</label>
+                          │           └─ <input type="text">
+                          │
+                          ├─ LIGNE 2: EMAIL ET TÉLÉPHONE
+                          │   └─ <div class="grid"> (2 colonnes desktop)
+                          │       ├─ <div> (Champ Email)
+                          │       │   ├─ <label>"Email"</label>
+                          │       │   └─ <input type="email">
+                          │       │
+                          │       └─ <div> (Champ Téléphone)
+                          │           ├─ <label>"Téléphone"</label>
+                          │           └─ <input type="tel">
+                          │
+                          ├─ LIGNE 3: SECTEUR D'ACTIVITÉ
+                          │   └─ <div>
+                          │       ├─ <label>"Secteur d'activité"</label>
+                          │       └─ <select>
+                          │           ├─ <option>"Sélectionnez..."</option>
+                          │           ├─ <option>"Bâtiment & Promotion"</option>
+                          │           ├─ <option>"Industrie & Manufacture"</option>
+                          │           ├─ <option>"Événementiel"</option>
+                          │           ├─ <option>"Tertiaire & Bureaux"</option>
+                          │           └─ <option>"Particulier"</option>
+                          │
+                          ├─ CHAMP CONDITIONNEL (si secteur = Événementiel)
+                          │   └─ <div> (Fond bleu clair, apparition animée)
+                          │       ├─ <label>"Type d'événement"</label>
+                          │       └─ <input type="text">
+                          │
+                          ├─ CHAMP CONDITIONNEL (si secteur = Industrie)
+                          │   └─ <div> (Fond bleu clair, apparition animée)
+                          │       ├─ <label>"Type d'installation"</label>
+                          │       └─ <select>
+                          │           ├─ "Nouveau raccordement"
+                          │           ├─ "Maintenance TGBT"
+                          │           └─ "Pose de Transformateur"
+                          │
+                          ├─ LIGNE 4: MESSAGE
+                          │   └─ <div>
+                          │       ├─ <label>"Message"</label>
+                          │       └─ <textarea rows="4"></textarea>
+                          │
+                          ├─ BOUTON D'ENVOI
+                          │   └─ <button type="button">
+                          │       └─ "ENVOYER LA DEMANDE" + Icône Send
+                          │
+                          └─ NOTE DE CONFIDENTIALITÉ
+                              └─ <p>"Vos données sont confidentielles..."</p>
+
+NOMBRE D'ÉLÉMENTS SECTION CONTACT:
+Panneau gauche:
+- 1 titre + 1 description
+- 2 étapes (bureau d'étude + installation)
+- 1 élément décoratif
+
+Panneau droit (formulaire):
+- 6 champs obligatoires (nom, société, email, téléphone, secteur, message)
+- 2 champs conditionnels possibles
+- 1 bouton d'envoi
+- 1 note de bas de page
+
+TOTAL: 3 éléments texte + 2 étapes + 6 champs + 1 bouton = 12 composants principaux
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         8. FOOTER
+═══════════════════════════════════════════════════════════════════════════════
+
+STRUCTURE:
+
+<footer> (Fond navy-900, texte blanc, bordure top navy-800)
+  │
+  └─ <div class="container"> (Padding py-16)
+      │
+      └─ <div class="grid"> (1 col mobile, 2 col tablette, 4 col desktop, gap-12)
+          │
+          ├─ COLONNE 1: BRAND (Marque)
+          │   └─ <div>
+          │       ├─ <div> (Logo + Nom)
+          │       │   ├─ <Logo /> (Composant SVG)
+          │       │   └─ <span>"MULTIRESAUX SARL"</span>
+          │       │
+          │       ├─ <p>Description de l'entreprise</p>
+          │       │
+          │       └─ <div> (Réseaux sociaux, flex, gap-4)
+          │           ├─ <a> (LinkedIn)
+          │           │   └─ Carré navy-800, icône Linkedin
+          │           │
+          │           └─ <a> (Instagram)
+          │               └─ Carré navy-800, icône Instagram
+          │
+          ├─ COLONNE 2: CONTACT
+          │   └─ <div>
+          │       ├─ <h4>"Contact"</h4> (Bordure gauche rouge)
+          │       │
+          │       └─ <ul> (Liste, gap-4)
+          │           ├─ <li> (Adresse)
+          │           │   ├─ Icône MapPin (rouge)
+          │           │   └─ "Hay Arsalan Rue 8, N° 14 Appt 4..."
+          │           │
+          │           ├─ <li> (Email)
+          │           │   ├─ Icône Mail (rouge)
+          │           │   └─ <a href="mailto:...">info@multireseaux.ma</a>
+          │           │
+          │           └─ <li> (Téléphone)
+          │               ├─ Icône Phone (rouge)
+          │               └─ "05 22 60 36 21"
+          │
+          ├─ COLONNE 3: LIENS RAPIDES
+          │   └─ <div>
+          │       ├─ <h4>"Liens Rapides"</h4> (Bordure gauche rouge)
+          │       │
+          │       └─ <ul> (Liste, gap-3)
+          │           ├─ <li><a> Icône ArrowRight + "Accueil"</a></li>
+          │           ├─ <li><a> Icône ArrowRight + "Nos Services"</a></li>
+          │           ├─ <li><a> Icône ArrowRight + "Catalogue"</a></li>
+          │           ├─ <li><a> Icône ArrowRight + "À Propos"</a></li>
+          │           └─ <li><a> Icône ArrowRight + "Demander un devis"</a></li>
+          │
+          └─ COLONNE 4: MENTIONS LÉGALES
+              └─ <div>
+                  ├─ <h4>"Mentions Légales"</h4> (Bordure gauche rouge)
+                  │
+                  └─ <ul> (Liste, texte monospace)
+                      ├─ <li>"RC: 123456"</li>
+                      ├─ <li>"Patente: 789012"</li>
+                      ├─ <li>"IF: 34567890"</li>
+                      ├─ <li>"CNSS: 1234567"</li>
+                      └─ <li>"© 2024 MULTIRESAUX SARL..."</li>
+
+NOMBRE D'ÉLÉMENTS FOOTER:
+Colonne 1 (Brand):
+- 1 logo + 1 nom d'entreprise
+- 1 description
+- 2 liens réseaux sociaux
+
+Colonne 2 (Contact):
+- 1 titre
+- 3 informations de contact (adresse, email, téléphone)
+
+Colonne 3 (Liens):
+- 1 titre
+- 5 liens de navigation
+
+Colonne 4 (Légal):
+- 1 titre
+- 5 informations légales
+
+TOTAL: 4 titres + 1 logo + 1 description + 2 réseaux sociaux + 3 contacts + 5 liens + 5 légal = 21 éléments
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         9. BOUTON WHATSAPP FLOTTANT
+═══════════════════════════════════════════════════════════════════════════════
+
+STRUCTURE:
+
+<a> (Position fixed, bottom-6, right-6, z-index 50)
+    │
+    ├─ Icône MessageCircle (w-8 h-8)
+    │
+    └─ <span> (Tooltip, position absolute, opacity 0 → 100 au hover)
+        └─ "Discuter en direct"
+
+NOMBRE D'ÉLÉMENTS:
+- 1 bouton
+- 1 icône
+- 1 tooltip
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                         10. RÉCAPITULATIF COMPLET
+═══════════════════════════════════════════════════════════════════════════════
+
+NOMBRE TOTAL D'ÉLÉMENTS PAR SECTION:
+
+┌─────────────────────────────┬──────────────────────────────────────────────┐
+│ SECTION                     │ ÉLÉMENTS PRINCIPAUX                          │
+├─────────────────────────────┼──────────────────────────────────────────────┤
+│ NAVBAR                      │ 1 logo + 5 liens + 1 téléphone + 2 boutons   │
+│                             │ = 9 éléments                                 │
+├─────────────────────────────┼──────────────────────────────────────────────┤
+│ HERO                        │ 1 badge + 1 titre + 1 description +          │
+│                             │ 2 boutons + 3 stats = 8 éléments             │
+├─────────────────────────────┼──────────────────────────────────────────────┤
+│ SERVICES                    │ 7 cartes services + 3 packs solutions        │
+│                             │ = 10 cartes                                  │
+├─────────────────────────────┼──────────────────────────────────────────────┤
+│ CATALOGUE                   │ 3 produits + 2 infos + 3 boutons             │
+│                             │ = 8 éléments                                 │
+├─────────────────────────────┼──────────────────────────────────────────────┤
+│ ENGAGEMENTS                 │ 5 engagements + 4 badges garanties           │
+│                             │ = 9 éléments                                 │
+├─────────────────────────────┼──────────────────────────────────────────────┤
+│ CONTACT                     │ 3 textes + 2 étapes + 6 champs +             │
+│                             │ 1 bouton = 12 éléments                       │
+├─────────────────────────────┼──────────────────────────────────────────────┤
+│ FOOTER                      │ 4 colonnes avec 21 éléments total            │
+├─────────────────────────────┼──────────────────────────────────────────────┤
+│ WHATSAPP                    │ 1 bouton flottant + 1 tooltip                │
+└─────────────────────────────┴──────────────────────────────────────────────┘
+
+TOTAL GÉNÉRAL: ~80 éléments principaux
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    11. DISPOSITION DES GRILLES (LAYOUT)
+═══════════════════════════════════════════════════════════════════════════════
+
+SECTION SERVICES - GRILLE MOSAÏQUE:
+┌─────────────────────────────────────────────────┐
+│                                                 │
+│              CARTE CFO                          │
+│          (2 col × 2 row)                        │
+│          [Grande carte]                         │
+│                                                 │
+├─────────────────┬───────────────────────────────┤
+│   CARTE CFA     │     CARTE MT                  │
+│  (1 col × 1)    │   (1 col × 1)                 │
+├─────────────────┼───────────────────────────────┤
+│   ÉVÉNEMENT     │     BORNES VE                 │
+│  (1 col × 1)    │   (1 col × 1)                 │
+├─────────────────┼───────────────────────────────┤
+│   BUREAUX       │     MAINTENANCE               │
+│  (1 col × 1)    │   (1 col × 1)                 │
+└─────────────────┴───────────────────────────────┘
+
+MOBILE: Toutes les cartes empilées en 1 colonne
+
+
+SECTION PACKS SOLUTIONS - LIGNE HORIZONTALE:
+┌──────────────────┬──────────────────┬──────────────────┐
+│                  │                  │                  │
+│  PACK EVENT      │   PACK BUREAU    │  PACK RECHARGE   │
+│  [Icône rouge]   │  [Icône bleu]    │  [Icône vert]    │
+│  • Item 1        │  • Item 1        │  • Item 1        │
+│  • Item 2        │  • Item 2        │  • Item 2        │
+│  • Item 3        │  • Item 3        │  • Item 3        │
+│                  │                  │                  │
+└──────────────────┴──────────────────┴──────────────────┘
+
+MOBILE: 3 cartes empilées en 1 colonne
+
+
+SECTION CATALOGUE - 3 COLONNES ÉGALES:
+┌──────────────────┬──────────────────┬──────────────────┐
+│    [Image 1]     │    [Image 2]     │    [Image 3]     │
+│                  │                  │                  │
+│  GROUPES ÉLEC.   │  SANITAIRE       │  CONTENEURS      │
+│  Description     │  Description     │  Description     │
+│  [Lien]          │  [Lien]          │  [Lien]          │
+│                  │                  │                  │
+└──────────────────┴──────────────────┴──────────────────┘
+
+MOBILE: 3 produits empilés en 1 colonne
+
+
+SECTION ENGAGEMENTS - 5 COLONNES:
+┌───────┬───────┬───────┬───────┬───────┐
+│ [Icô] │ [Icô] │ [Icô] │ [Icô] │ [Icô] │
+│       │       │       │       │       │
+│QUALITÉ│SÉCUR. │RAPID. │MATÉR. │SOLUT. │
+│       │       │       │       │       │
+│ Desc  │ Desc  │ Desc  │ Desc  │ Desc  │
+└───────┴───────┴───────┴───────┴───────┘
+
+MOBILE: 5 éléments empilés en 1 colonne
+TABLETTE: 3 colonnes
+
+
+FOOTER - 4 COLONNES:
+┌─────────┬─────────┬─────────┬─────────┐
+│         │         │         │         │
+│  BRAND  │ CONTACT │  LIENS  │  LÉGAL  │
+│         │         │         │         │
+│ [Logo]  │ Adresse │ • Link1 │ RC:...  │
+│ Desc    │ Email   │ • Link2 │ Pat:... │
+│ [Soc.]  │ Tél     │ • Link3 │ IF:...  │
+│         │         │ • Link4 │ CNSS:.. │
+│         │         │ • Link5 │ © 2024  │
+│         │         │         │         │
+└─────────┴─────────┴─────────┴─────────┘
+
+MOBILE: 4 colonnes empilées en 1 colonne
+TABLETTE: 2 colonnes (2×2)
+
+
+FORMULAIRE CONTACT - SPLIT SCREEN:
+┌───────────────────┬─────────────────────────────┐
+│                   │                             │
+│  PANNEAU GAUCHE   │   PANNEAU DROIT (FORM)      │
+│  (40% largeur)    │   (60% largeur)             │
+│                   │                             │
+│  Fond navy-900    │   Fond blanc                │
+│                   │                             │
+│  • Titre          │   [Nom]      [Société]      │
+│  • Description    │   [Email]    [Téléphone]    │
+│  • Étapes         │   [Secteur]                 │
+│  • Déco           │   [Message]                 │
+│                   │   [BOUTON ENVOYER]          │
+│                   │                             │
+└───────────────────┴─────────────────────────────┘
+
+MOBILE: 2 panneaux empilés verticalement
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    12. HIÉRARCHIE VISUELLE & IMPORTANCE
+═══════════════════════════════════════════════════════════════════════════════
+
+ÉLÉMENTS LES PLUS IMPORTANTS (À METTRE EN AVANT):
+
+1. HERO:
+   - Titre principal (très grand, gras)
+   - 2 boutons CTA (rouge + transparent)
+   - Badge "Intervention 24/7"
+
+2. SERVICES:
+   - Carte CFO (double taille, plus visible)
+   - Icônes colorées distinctives
+   - Section Packs (fond navy-900 pour contraster)
+
+3. CATALOGUE:
+   - Images grandes et attractives
+   - Badges "Vente & Location" sur images
+   - Barre d'infos en bas (fond gris clair)
+
+4. CONTACT:
+   - Formulaire en split-screen
+   - Bouton "ENVOYER" rouge très visible
+   - Panneau gauche navy-900 pour contraster
+
+5. ENGAGEMENTS:
+   - Fond navy-900 (toute la section sombre)
+   - 5 icônes rouges alignées
+   - Badges de garanties en bas
+
+ÉLÉMENTS SECONDAIRES:
+
+- Navbar (discrète au départ, visible au scroll)
+- Stats bar Hero (en bas, petite)
+- Footer (informations complémentaires)
+- WhatsApp (flottant, ne dérange pas)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    13. TYPES DE CONTENU PAR SECTION
+═══════════════════════════════════════════════════════════════════════════════
+
+NAVBAR:
+- Texte: Liens de navigation, téléphone, bouton CTA
+- SVG: Logo
+- Icônes: Phone, Menu, X, ChevronRight
+
+HERO:
+- Texte: Titre (3 lignes), description (2 paragraphes), 2 boutons, badge, 3 stats
+- Image: Photo de fond (équipement électrique)
+- SVG: Pattern de grille
+- Icônes: ArrowRight, ChevronRight, Zap, CheckCircle2, MapPin
+
+SERVICES:
+- Texte: Titre section, 7 titres services, 7 descriptions, 3 titres packs, 9 items liste
+- Icônes: Zap, Server, Factory, Mic2, BatteryCharging, Building2, Wrench, PackageCheck, ArrowUpRight
+
+CATALOGUE:
+- Texte: Titre section, 3 titres produits, 3 descriptions, 2 infos
+- Images: 3 photos de produits (Unsplash)
+- Icônes: Zap, Droplets, Container, ShieldCheck, Package, Truck
+
+ENGAGEMENTS:
+- Texte: 5 titres + 5 descriptions, titre "Nos Garanties", 4 badges
+- Icônes: Shield, CheckCircle, Clock, Award, PenTool, FileCheck, HeartHandshake, History
+
+CONTACT:
+- Texte: Titre, description, 2 étapes, 6 labels, 1 bouton, 1 note
+- Inputs: 4 champs texte, 1 email, 1 tel, 1 select, 1 textarea
+- Icônes: Send
+
+FOOTER:
+- Texte: Nom entreprise, description, 3 contacts, 5 liens, 5 mentions légales
+- SVG: Logo
+- Icônes: Linkedin, Instagram, MapPin, Mail, Phone, ArrowRight
+
+WHATSAPP:
+- Icônes: MessageCircle
+- Texte: Tooltip
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                    14. INSTRUCTIONS POUR UN AI
+═══════════════════════════════════════════════════════════════════════════════
+
+Pour recréer ce site, l'AI doit:
+
+1. CRÉER LA STRUCTURE HTML avec ces sections dans cet ordre:
+   - Header (Navbar)
+   - Section Hero (#accueil)
+   - Section Services (#services) avec sous-section Packs
+   - Section Catalogue (#vente-location)
+   - Section Engagements (#engagements)
+   - Section Contact (#contact)
+   - Footer
+   - Bouton WhatsApp flottant
+
+2. RESPECTER LES GRILLES:
+   - Services: Grid 4 colonnes avec carte CFO en 2×2
+   - Packs: Grid 3 colonnes égales
+   - Catalogue: Grid 3 colonnes égales
+   - Engagements: Grid 5 colonnes
+   - Footer: Grid 4 colonnes
+   - Formulaire: Split 40/60
+
+3. AJOUTER CES NOMBRES D'ÉLÉMENTS:
+   - Navbar: 5 liens
+   - Hero: 2 boutons + 3 stats
+   - Services: 7 cartes + 3 packs
+   - Catalogue: 3 produits
+   - Engagements: 5 cartes + 4 badges
+   - Contact: 6 champs + 2 conditionnels
+   - Footer: 4 colonnes
+
+4. UTILISER CES ICÔNES (Lucide ou équivalent):
+   - Navigation: Phone, Menu, X, ChevronRight, ArrowRight, ArrowUpRight
+   - Services: Zap, Server, Factory, Mic2, BatteryCharging, Building2, Wrench
+   - Catalogue: Package, Truck, Container, Droplets, ShieldCheck
+   - Engagements: Shield, CheckCircle, Clock, Award, PenTool, FileCheck, HeartHandshake, History
+   - Contact: Send
+   - Footer: MapPin, Mail, Phone, Linkedin, Instagram
+   - WhatsApp: MessageCircle
+
+5. APPLIQUER CES COULEURS:
+   - Principal: Navy (#0A192F)
+   - Accent: Rouge électrique (#E63946)
+   - Fond: Gris clair (#F8FAFC)
+   - Texte: Navy-900 sur fond clair, Blanc sur fond sombre
+
+6. RENDRE RESPONSIVE:
+   - Mobile: 1 colonne partout (sauf formulaire split vertical)
+   - Desktop: Grilles à colonnes multiples comme décrit
+   - Navbar: Menu hamburger mobile, liens horizontaux desktop
+
+7. AJOUTER CES INTERACTIONS:
+   - Hover sur boutons: Translation vers le haut + ombre
+   - Hover sur cartes: Ombre étendue + scale icône
+   - Hover sur images: Zoom × 1.1
+   - Navbar: Transparent → opaque au scroll
+   - Formulaire: Champs conditionnels selon secteur choisi
+
+8. UTILISER CETTE TYPOGRAPHIE:
+   - Police: Inter (ou similaire sans-serif moderne)
+   - H1: Très grand (4xl-7xl), gras (900)
+   - H2: Grand (3xl-4xl), gras (700)
+   - H3: Moyen (xl-2xl), gras (700)
+   - Body: Normal (base-lg), regular (400)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+                              FIN DU DOCUMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+Ce document fournit toutes les informations structurelles nécessaires pour
+qu'un AI puisse recréer un site web identique ou similaire au site
+MULTIRESAUX SARL.
+
+Date de création: 10 Décembre 2025
+Contact: info@multireseaux.ma
+
+═══════════════════════════════════════════════════════════════════════════════
