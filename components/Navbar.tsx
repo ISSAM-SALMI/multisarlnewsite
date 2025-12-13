@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             <a href="#" className="flex items-center gap-3 group">
               <div className="relative">
                 <div className="absolute inset-0 bg-electric-red/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <Logo className="w-12 h-12 md:w-16 md:h-16 relative z-10" />
+                <Logo className="w-16 h-16 md:w-24 md:h-24 relative z-10" />
               </div>
             </a>
 

@@ -90,7 +90,7 @@ export const Catalog: React.FC = () => {
             <p className="text-gray-600 text-sm">Partout au Maroc.</p>
           </div>
         </div>
-        <a href="#contact" className="px-6 py-3 bg-white border border-gray-300 text-navy-900 font-bold rounded hover:border-navy-900 hover:bg-navy-50 transition-colors w-full md:w-auto text-center">
+        <a href="https://wa.me/212694934280" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white border border-gray-300 text-navy-900 font-bold rounded hover:border-navy-900 hover:bg-navy-50 transition-colors w-full md:w-auto text-center">
           Contacter le service commercial
         </a>
       </div>

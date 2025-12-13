@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
           {/* Brand */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <Logo className="w-10 h-10" />
+              <Logo className="w-20 h-20" />
               <span className="text-xl font-bold tracking-tight">MULTIRESAUX SARL</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-electric-red flex-shrink-0" />
-                <span className="text-sm">05 22 60 36 21</span>
+                <span className="text-sm">06 94 93 42 80</span>
               </li>
             </ul>
           </div>
