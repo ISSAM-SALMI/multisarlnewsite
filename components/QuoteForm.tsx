@@ -10,7 +10,7 @@ export const QuoteForm: React.FC = () => {
       <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
         
         {/* Left Side: Info */}
-        <div className="bg-navy-900 p-10 text-white md:w-2/5 flex flex-col justify-between relative overflow-hidden">
+        <div className="bg-navy-900 dark:bg-navy-800 p-10 text-white md:w-2/5 flex flex-col justify-between relative overflow-hidden transition-colors">
           <div className="relative z-10">
             <h2 className="text-3xl font-bold mb-6">Parlons de votre projet</h2>
             <p className="text-gray-300 mb-8 leading-relaxed">
@@ -40,34 +40,34 @@ export const QuoteForm: React.FC = () => {
         </div>
 
         {/* Right Side: Form */}
-        <div className="p-10 md:w-3/5 bg-white">
+        <div className="p-10 md:w-3/5 bg-white dark:bg-navy-900 transition-colors">
           <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-bold text-navy-900 mb-2">Nom Complet</label>
-                <input type="text" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors" placeholder="Votre nom" />
+                <label className="block text-sm font-bold text-navy-900 dark:text-white mb-2 transition-colors">Nom Complet</label>
+                <input type="text" className="w-full px-4 py-3 bg-gray-50 dark:bg-navy-800 border border-gray-200 dark:border-navy-700 text-navy-900 dark:text-white rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors" placeholder="Votre nom" />
               </div>
               <div>
-                <label className="block text-sm font-bold text-navy-900 mb-2">Société</label>
-                <input type="text" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors" placeholder="Nom de l'entreprise" />
+                <label className="block text-sm font-bold text-navy-900 dark:text-white mb-2 transition-colors">Société</label>
+                <input type="text" className="w-full px-4 py-3 bg-gray-50 dark:bg-navy-800 border border-gray-200 dark:border-navy-700 text-navy-900 dark:text-white rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors" placeholder="Nom de l'entreprise" />
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-bold text-navy-900 mb-2">Email</label>
-                <input type="email" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors" placeholder="email@entreprise.ma" />
+                <label className="block text-sm font-bold text-navy-900 dark:text-white mb-2 transition-colors">Email</label>
+                <input type="email" className="w-full px-4 py-3 bg-gray-50 dark:bg-navy-800 border border-gray-200 dark:border-navy-700 text-navy-900 dark:text-white rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors" placeholder="email@entreprise.ma" />
               </div>
               <div>
-                <label className="block text-sm font-bold text-navy-900 mb-2">Téléphone</label>
-                <input type="tel" className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors" placeholder="06 00 00 00 00" />
+                <label className="block text-sm font-bold text-navy-900 dark:text-white mb-2 transition-colors">Téléphone</label>
+                <input type="tel" className="w-full px-4 py-3 bg-gray-50 dark:bg-navy-800 border border-gray-200 dark:border-navy-700 text-navy-900 dark:text-white rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors" placeholder="06 00 00 00 00" />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-navy-900 mb-2">Secteur d'activité</label>
+              <label className="block text-sm font-bold text-navy-900 dark:text-white mb-2 transition-colors">Secteur d'activité</label>
               <select 
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors appearance-none"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-navy-800 border border-gray-200 dark:border-navy-700 text-navy-900 dark:text-white rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors appearance-none"
                 value={sector}
                 onChange={(e) => setSector(e.target.value as Sector)}
               >
@@ -80,16 +80,16 @@ export const QuoteForm: React.FC = () => {
 
             {/* Dynamic Field based on Sector */}
             {sector === Sector.EVENT && (
-              <div className="bg-blue-50 p-4 rounded border border-blue-100 animate-fade-in">
-                <label className="block text-sm font-bold text-navy-900 mb-2">Type d'événement</label>
-                <input type="text" className="w-full px-4 py-2 bg-white border border-gray-200 rounded outline-none" placeholder="Concert, Festival, Mariage..." />
+              <div className="bg-blue-50 dark:bg-navy-800 p-4 rounded border border-blue-100 dark:border-navy-700 animate-fade-in transition-colors">
+                <label className="block text-sm font-bold text-navy-900 dark:text-white mb-2 transition-colors">Type d'événement</label>
+                <input type="text" className="w-full px-4 py-2 bg-white dark:bg-navy-900 border border-gray-200 dark:border-navy-700 text-navy-900 dark:text-white rounded outline-none transition-colors" placeholder="Concert, Festival, Mariage..." />
               </div>
             )}
             
             {sector === Sector.INDUSTRIE && (
-              <div className="bg-blue-50 p-4 rounded border border-blue-100 animate-fade-in">
-                <label className="block text-sm font-bold text-navy-900 mb-2">Type d'installation</label>
-                <select className="w-full px-4 py-2 bg-white border border-gray-200 rounded outline-none">
+              <div className="bg-blue-50 dark:bg-navy-800 p-4 rounded border border-blue-100 dark:border-navy-700 animate-fade-in transition-colors">
+                <label className="block text-sm font-bold text-navy-900 dark:text-white mb-2 transition-colors">Type d'installation</label>
+                <select className="w-full px-4 py-2 bg-white dark:bg-navy-900 border border-gray-200 dark:border-navy-700 text-navy-900 dark:text-white rounded outline-none transition-colors">
                   <option>Nouveau raccordement</option>
                   <option>Maintenance TGBT</option>
                   <option>Pose de Transformateur</option>

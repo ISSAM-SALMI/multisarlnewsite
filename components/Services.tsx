@@ -58,11 +58,11 @@ export const Services: React.FC = () => {
   return (
     <div className="py-24 container mx-auto px-4 md:px-6">
       <div className="text-center mb-16 max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-4 transition-colors">
           Nos Domaines d'Intervention
         </h2>
         <div className="h-1 w-20 bg-electric-red mx-auto mb-6"></div>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 dark:text-gray-400 text-lg transition-colors">
           Expertise technique complète : de l'étude à la maintenance.
         </p>
       </div>
@@ -73,28 +73,28 @@ export const Services: React.FC = () => {
             key={service.id}
             className={`
               ${service.colSpan}
-              bg-white rounded-xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300 group relative overflow-hidden
+              bg-white dark:bg-navy-800 rounded-xl p-8 border border-gray-100 dark:border-navy-700 shadow-sm hover:shadow-xl hover:border-blue-100 dark:hover:border-blue-900 transition-all duration-300 group relative overflow-hidden
             `}
           >
             {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 group-hover:bg-blue-50/50"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-gray-50 dark:bg-navy-700 rounded-bl-full -mr-10 -mt-10 transition-transform group-hover:scale-150 group-hover:bg-blue-50/50 dark:group-hover:bg-blue-900/20"></div>
 
             <div className="relative z-10 h-full flex flex-col justify-between">
               <div>
-                <div className="bg-slate-50 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-100">
+                <div className="bg-slate-50 dark:bg-navy-900 w-16 h-16 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-gray-100 dark:border-navy-700">
                   {service.icon}
                 </div>
                 
-                <h3 className="text-xl md:text-2xl font-bold text-navy-900 mb-4 group-hover:text-electric-red transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-navy-900 dark:text-white mb-4 group-hover:text-electric-red transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-600 leading-relaxed mb-6 text-sm">
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-sm transition-colors">
                   {service.description}
                 </p>
               </div>
 
-              <a href="#contact" className="inline-flex items-center text-sm font-bold text-navy-900 hover:text-electric-red transition-colors uppercase tracking-wider">
+              <a href="#contact" className="inline-flex items-center text-sm font-bold text-navy-900 dark:text-white hover:text-electric-red dark:hover:text-electric-red transition-colors uppercase tracking-wider">
                 En savoir plus <ArrowUpRight className="ml-2 w-4 h-4" />
               </a>
             </div>

@@ -33,25 +33,25 @@ export const Commitments: React.FC = () => {
   return (
     <div className="container mx-auto px-4 md:px-6 py-20">
       <div className="text-center mb-16 max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-4 transition-colors">
           Nos Engagements
         </h2>
         <div className="h-1 w-20 bg-electric-red mx-auto mb-6"></div>
-        <p className="text-gray-400 text-lg">
+        <p className="text-gray-600 dark:text-gray-400 text-lg transition-colors">
           Votre confiance est notre priorité absolue.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center md:text-left mb-16">
         {items.map((item, idx) => (
-          <div key={idx} className="flex flex-col items-center md:items-start group p-4 rounded-lg hover:bg-navy-800/50 transition-colors">
+          <div key={idx} className="flex flex-col items-center md:items-start group p-4 rounded-lg hover:bg-white dark:hover:bg-navy-800/50 transition-colors">
             <div className="transform group-hover:scale-110 transition-transform duration-300">
               {item.icon}
             </div>
-            <h3 className="text-lg font-bold mb-3 text-white leading-tight">
+            <h3 className="text-lg font-bold mb-3 text-navy-900 dark:text-white leading-tight transition-colors">
               {item.title}
             </h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed transition-colors">
               {item.text}
             </p>
           </div>
@@ -59,24 +59,20 @@ export const Commitments: React.FC = () => {
       </div>
 
       {/* Guarantees Bar */}
-      <div className="border-t border-navy-700 pt-10">
-        <h3 className="text-xl font-bold text-center text-white mb-8">Nos Garanties</h3>
+      <div className="border-t border-gray-200 dark:border-navy-700 pt-10 transition-colors">
+        <h3 className="text-xl font-bold text-center text-navy-900 dark:text-white mb-8 transition-colors">Nos Garanties</h3>
         <div className="flex flex-wrap justify-center gap-6 md:gap-12">
-          <div className="flex items-center gap-3 bg-navy-800 px-6 py-3 rounded-full border border-navy-700">
-             <FileCheck className="text-blue-400 w-5 h-5" />
-             <span className="font-semibold text-gray-200">Certification BT</span>
+          <div className="flex items-center gap-3 bg-white dark:bg-navy-800 px-6 py-3 rounded-full border border-gray-200 dark:border-navy-700 shadow-sm transition-colors">
+             <FileCheck className="text-blue-500 dark:text-blue-400 w-5 h-5" />
+             <span className="font-semibold text-navy-900 dark:text-gray-200 transition-colors">Agrément BT-MT</span>
           </div>
-          <div className="flex items-center gap-3 bg-navy-800 px-6 py-3 rounded-full border border-navy-700">
-             <HeartHandshake className="text-blue-400 w-5 h-5" />
-             <span className="font-semibold text-gray-200">Équipe qualifiée</span>
+          <div className="flex items-center gap-3 bg-white dark:bg-navy-800 px-6 py-3 rounded-full border border-gray-200 dark:border-navy-700 shadow-sm transition-colors">
+             <HeartHandshake className="text-blue-500 dark:text-blue-400 w-5 h-5" />
+             <span className="font-semibold text-navy-900 dark:text-gray-200 transition-colors">Équipe qualifiée</span>
           </div>
-           <div className="flex items-center gap-3 bg-navy-800 px-6 py-3 rounded-full border border-navy-700">
-             <History className="text-blue-400 w-5 h-5" />
-             <span className="font-semibold text-gray-200">15 ans d’expérience</span>
-          </div>
-           <div className="flex items-center gap-3 bg-navy-800 px-6 py-3 rounded-full border border-navy-700">
-             <Shield className="text-blue-400 w-5 h-5" />
-             <span className="font-semibold text-gray-200">Assurance RC</span>
+           <div className="flex items-center gap-3 bg-white dark:bg-navy-800 px-6 py-3 rounded-full border border-gray-200 dark:border-navy-700 shadow-sm transition-colors">
+             <History className="text-blue-500 dark:text-blue-400 w-5 h-5" />
+             <span className="font-semibold text-navy-900 dark:text-gray-200 transition-colors">15 ans d’expérience</span>
           </div>
         </div>
       </div>

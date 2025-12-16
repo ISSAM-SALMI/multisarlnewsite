@@ -34,14 +34,14 @@ export const Catalog: React.FC = () => {
       <div className="flex flex-col md:flex-row justify-between items-end mb-16">
         <div className="max-w-2xl">
           <span className="text-electric-red font-bold tracking-wider uppercase text-sm mb-2 block">Catalogue Professionnel</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white transition-colors">
             Vente & Location de Matériel
           </h2>
-          <p className="text-gray-600 mt-4 text-lg">
+          <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg transition-colors">
             Matériel certifié et disponible immédiatement pour vos besoins temporaires ou durables.
           </p>
         </div>
-        <a href="#contact" className="hidden md:inline-flex px-6 py-3 bg-navy-900 text-white font-bold rounded hover:bg-navy-800 transition-colors mt-4 md:mt-0">
+        <a href="#contact" className="hidden md:inline-flex px-6 py-3 bg-navy-900 dark:bg-white text-white dark:text-navy-900 font-bold rounded hover:bg-navy-800 dark:hover:bg-gray-100 transition-colors mt-4 md:mt-0">
           Demander le catalogue PDF
         </a>
       </div>
@@ -50,7 +50,7 @@ export const Catalog: React.FC = () => {
         {products.map((item) => (
           <div key={item.id} className="group cursor-pointer flex flex-col h-full">
             <div className="relative h-64 overflow-hidden rounded-lg mb-6 shadow-md">
-              <div className="absolute top-4 left-4 bg-white/95 backdrop-blur text-navy-900 text-xs font-bold px-3 py-1 rounded shadow-sm z-10 flex items-center gap-2">
+              <div className="absolute top-4 left-4 bg-white/95 dark:bg-navy-900/95 backdrop-blur text-navy-900 dark:text-white text-xs font-bold px-3 py-1 rounded shadow-sm z-10 flex items-center gap-2 transition-colors">
                 {item.icon} {item.tag}
               </div>
               <img 
@@ -61,36 +61,36 @@ export const Catalog: React.FC = () => {
               <div className="absolute inset-0 bg-navy-900/0 group-hover:bg-navy-900/20 transition-colors duration-300"></div>
             </div>
             
-            <h3 className="text-2xl font-bold text-navy-900 mb-2 group-hover:text-electric-red transition-colors">
+            <h3 className="text-2xl font-bold text-navy-900 dark:text-white mb-2 group-hover:text-electric-red transition-colors">
               {item.title}
             </h3>
-            <p className="text-gray-600 mb-6 flex-grow">
+            <p className="text-gray-600 dark:text-gray-400 mb-6 flex-grow transition-colors">
               {item.desc}
             </p>
           </div>
         ))}
       </div>
 
-      <div className="mt-16 bg-slate-100 rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-200">
+      <div className="mt-16 bg-slate-100 dark:bg-navy-800 rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6 border border-slate-200 dark:border-navy-700 transition-colors">
         <div className="flex items-center gap-4">
-          <div className="p-3 bg-white rounded-full text-electric-red shadow-sm">
+          <div className="p-3 bg-white dark:bg-navy-900 rounded-full text-electric-red shadow-sm transition-colors">
             <Package className="w-6 h-6" />
           </div>
           <div>
-            <h4 className="font-bold text-navy-900">Stock disponible</h4>
-            <p className="text-gray-600 text-sm">Disponibilité immédiate sur Casablanca.</p>
+            <h4 className="font-bold text-navy-900 dark:text-white transition-colors">Stock disponible</h4>
+            <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors">Disponibilité immédiate sur Casablanca.</p>
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <div className="p-3 bg-white rounded-full text-electric-red shadow-sm">
+          <div className="p-3 bg-white dark:bg-navy-900 rounded-full text-electric-red shadow-sm transition-colors">
             <Truck className="w-6 h-6" />
           </div>
           <div>
-            <h4 className="font-bold text-navy-900">Livraison sur site</h4>
-            <p className="text-gray-600 text-sm">Partout au Maroc.</p>
+            <h4 className="font-bold text-navy-900 dark:text-white transition-colors">Livraison sur site</h4>
+            <p className="text-gray-600 dark:text-gray-400 text-sm transition-colors">Partout au Maroc.</p>
           </div>
         </div>
-        <a href="https://wa.me/212694934280" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white border border-gray-300 text-navy-900 font-bold rounded hover:border-navy-900 hover:bg-navy-50 transition-colors w-full md:w-auto text-center">
+        <a href="https://wa.me/212694934280" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-white dark:bg-navy-900 border border-gray-300 dark:border-navy-600 text-navy-900 dark:text-white font-bold rounded hover:border-navy-900 dark:hover:border-white hover:bg-navy-50 dark:hover:bg-navy-800 transition-colors w-full md:w-auto text-center">
           Contacter le service commercial
         </a>
       </div>
