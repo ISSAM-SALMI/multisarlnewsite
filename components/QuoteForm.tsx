@@ -98,15 +98,15 @@ export const QuoteForm: React.FC = () => {
             )}
 
             <div>
-              <label className="block text-sm font-bold text-navy-900 mb-2">Message</label>
+              <label className="block text-sm font-bold text-navy-900 dark:text-white mb-2 transition-colors">Message</label>
               <textarea 
                 rows={4} 
-                className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors"
+                className="w-full px-4 py-3 bg-gray-50 dark:bg-navy-800 border border-gray-200 dark:border-navy-700 text-navy-900 dark:text-white rounded focus:border-electric-red focus:ring-1 focus:ring-electric-red outline-none transition-colors"
                 placeholder="Décrivez votre besoin..."
               ></textarea>
             </div>
 
-            <button type="button" className="w-full bg-electric-red hover:bg-electric-dark text-white font-bold py-4 rounded shadow-lg shadow-red-200 transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+            <button type="button" className="w-full bg-electric-red hover:bg-electric-dark text-white font-bold py-4 rounded shadow-lg shadow-red-200 dark:shadow-none transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
               ENVOYER LA DEMANDE <Send className="w-4 h-4" />
             </button>
             <p className="text-xs text-gray-500 text-center">

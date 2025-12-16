@@ -1,6 +1,7 @@
 import React from 'react';
-import { Zap, Server, Factory, Mic2, BatteryCharging, Wrench, ArrowUpRight, Building2, PackageCheck } from 'lucide-react';
+import { Zap, Server, Factory, Mic2, BatteryCharging, Wrench, ArrowUpRight, Building2, PackageCheck, Sun, CheckCircle } from 'lucide-react';
 import { ServiceItem } from '../types';
+import { Link } from 'react-router-dom';
 
 export const Services: React.FC = () => {
   const services: ServiceItem[] = [
@@ -94,12 +95,82 @@ export const Services: React.FC = () => {
                 </p>
               </div>
 
-              <a href="#contact" className="inline-flex items-center text-sm font-bold text-navy-900 dark:text-white hover:text-electric-red dark:hover:text-electric-red transition-colors uppercase tracking-wider">
-                En savoir plus <ArrowUpRight className="ml-2 w-4 h-4" />
-              </a>
+              {['cfo', 'cfa', 'events', 'mt', 'ev', 'maintenance', 'bureaux'].includes(service.id) ? (
+                <Link to={service.id === 'bureaux' ? '/services/offices' : `/services/${service.id}`} className="inline-flex items-center text-sm font-bold text-navy-900 dark:text-white hover:text-electric-red dark:hover:text-electric-red transition-colors uppercase tracking-wider z-20 relative">
+                  En savoir plus <ArrowUpRight className="ml-2 w-4 h-4" />
+                </Link>
+              ) : (
+                <a href="#contact" className="inline-flex items-center text-sm font-bold text-navy-900 dark:text-white hover:text-electric-red dark:hover:text-electric-red transition-colors uppercase tracking-wider z-20 relative">
+                  En savoir plus <ArrowUpRight className="ml-2 w-4 h-4" />
+                </a>
+              )}
+              
+              {/* Make the whole card clickable for CFO, CFA, Events, MT, EV, Maintenance and Offices */}
+              {['cfo', 'cfa', 'events', 'mt', 'ev', 'maintenance', 'bureaux'].includes(service.id) && (
+                <Link to={service.id === 'bureaux' ? '/services/offices' : `/services/${service.id}`} className="absolute inset-0 z-10" aria-label={`Voir les détails de ${service.title}`} />
+              )}
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Solar Photovoltaic Section */}
+      <div className="mb-24 bg-white dark:bg-navy-800 rounded-2xl p-8 md:p-12 border border-slate-200 dark:border-navy-700 shadow-xl relative overflow-hidden">
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-blue-400/10 rounded-full blur-3xl"></div>
+        
+        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 font-bold text-sm uppercase tracking-wider mb-6">
+              <Sun className="w-4 h-4" />
+              <span>Énergie Verte</span>
+            </div>
+            
+            <h3 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-6">
+              Solutions Solaires Photovoltaïques
+            </h3>
+            
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+              MULTIRESEAUX propose des solutions complètes d’installation de systèmes solaires photovoltaïques adaptées aux besoins des particuliers, des entreprises et des sites industriels. Grâce à une expertise technique confirmée, nous accompagnons nos clients de l’étude à la mise en service, avec un objectif clair : <span className="font-semibold text-orange-600 dark:text-orange-400">performance énergétique, fiabilité et rentabilité.</span>
+            </p>
+
+            <div className="space-y-4">
+              {[
+                "Étude technique et dimensionnement sur mesure selon la consommation réelle",
+                "Fourniture et installation de panneaux solaires, onduleurs et structures de fixation",
+                "Raccordement électrique sécurisé conforme aux normes en vigueur",
+                "Optimisation de la production et réduction des coûts énergétiques",
+                "Maintenance et suivi pour garantir la durabilité du système"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <Link to="/services/solar" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-full transition-all transform hover:-translate-y-1 shadow-lg shadow-orange-900/20">
+                Découvrir nos solutions solaires <ArrowUpRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="relative h-full min-h-[300px] rounded-xl overflow-hidden shadow-2xl group">
+            <Link to="/services/solar" className="absolute inset-0 z-30" aria-label="Voir les solutions solaires" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10"></div>
+            <img 
+              src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80" 
+              alt="Installation Panneaux Solaires" 
+              className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute bottom-0 left-0 p-8 z-20">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-lg inline-block">
+                <p className="text-white font-bold text-lg">Réduisez votre facture énergétique</p>
+                <p className="text-orange-200 text-sm">Investissement durable & rentable</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Packs Section */}

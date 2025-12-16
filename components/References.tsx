@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, TrendingUp } from 'lucide-react';
+import { Award, TrendingUp, CheckCircle2 } from 'lucide-react';
 
 export function References() {
   const clients = [
@@ -29,98 +29,79 @@ export function References() {
     },
   ];
 
+  // Duplicate clients to create seamless loop (4 sets ensures coverage on wide screens)
+  const marqueeClients = [...clients, ...clients, ...clients, ...clients];
+
   return (
-    <div className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Header Section */}
-      <div className="text-center mb-16">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-electric-red to-orange-500 rounded-2xl mb-6 shadow-lg transform hover:scale-110 transition-transform duration-300">
-          <Award className="w-8 h-8 text-white" />
+    <div className="py-24 bg-slate-50 dark:bg-navy-900 overflow-hidden relative">
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center relative z-10">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric-red/10 text-electric-red font-bold text-sm uppercase tracking-wider mb-6">
+          <Award className="w-4 h-4" />
+          <span>Nos Références</span>
         </div>
         
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-navy-900 to-navy-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-navy-900 dark:text-white">
           Ils Nous Font Confiance
         </h2>
         
-        <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-          Fiers de collaborer avec des entreprises leaders qui nous font confiance pour leurs besoins en équipements électriques et informatiques
+        <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10">
+          Nous sommes fiers d'accompagner ces entreprises leaders dans leur développement technologique et infrastructurel.
         </p>
 
-        {/* Stats Bar */}
-        <div className="mt-8 flex flex-wrap justify-center gap-8">
-          <div className="flex items-center gap-2 bg-navy-50 dark:bg-navy-800/50 px-6 py-3 rounded-full">
-            <TrendingUp className="w-5 h-5 text-electric-red" />
-            <span className="font-semibold text-navy-900 dark:text-white">+50 Projets Réalisés</span>
+        <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
+            <CheckCircle2 className="w-5 h-5 text-green-500" />
+            <span>Partenariats Durables</span>
           </div>
-          <div className="flex items-center gap-2 bg-navy-50 dark:bg-navy-800/50 px-6 py-3 rounded-full">
-            <Award className="w-5 h-5 text-electric-red" />
-            <span className="font-semibold text-navy-900 dark:text-white">100% Satisfaction Client</span>
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
+            <CheckCircle2 className="w-5 h-5 text-green-500" />
+            <span>Expertise Reconnue</span>
+          </div>
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
+            <CheckCircle2 className="w-5 h-5 text-green-500" />
+            <span>Support Premium</span>
           </div>
         </div>
       </div>
 
-      {/* Logos Grid */}
-      <div className="relative">
-        {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-electric-red/5 to-transparent blur-3xl"></div>
-        
-        <div className="relative grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8">
-          {clients.map((client, index) => (
-            <div
-              key={index}
-              className="group relative bg-white dark:bg-navy-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-              style={{
-                animationDelay: `${index * 100}ms`,
-                animation: 'fadeInUp 0.6s ease-out forwards',
-                opacity: 0,
-              }}
-            >
-              {/* Card glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-electric-red/0 via-electric-red/0 to-electric-red/0 group-hover:from-electric-red/10 group-hover:via-transparent group-hover:to-blue-500/10 rounded-2xl transition-all duration-500"></div>
-              
-              {/* Logo container */}
-              <div className="relative aspect-square flex items-center justify-center">
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="max-w-full max-h-full w-auto h-auto object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-110"
-                  loading="lazy"
-                />
-              </div>
+      {/* Marquee Container */}
+      <div className="relative w-full py-10">
+        {/* Gradient Masks for Fade Effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-slate-50 dark:from-navy-900 to-transparent z-20 pointer-events-none"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-slate-50 dark:from-navy-900 to-transparent z-20 pointer-events-none"></div>
 
-              {/* Hover overlay with company name */}
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-900/95 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-2xl p-4">
-                <p className="text-white text-sm font-semibold text-center">
-                  {client.name}
-                </p>
-              </div>
+        {/* Scrolling Track */}
+        <div className="flex w-max animate-marquee hover:pause">
+          {marqueeClients.map((client, index) => (
+            <div 
+              key={`${client.name}-${index}`}
+              className="mx-4 md:mx-8 w-40 h-24 md:w-52 md:h-32 bg-white dark:bg-navy-800 rounded-xl shadow-sm border border-slate-100 dark:border-white/5 flex items-center justify-center p-6 group transition-all duration-300 hover:shadow-md hover:border-electric-red/30 hover:-translate-y-1"
+            >
+              <img
+                src={client.logo}
+                alt={client.name}
+                className="max-w-full max-h-full w-auto h-auto object-contain transition-all duration-500 hover:scale-110"
+                loading="lazy"
+              />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Bottom CTA */}
-      <div className="mt-16 text-center">
-        <div className="inline-block bg-gradient-to-r from-navy-900 to-navy-700 dark:from-navy-800 dark:to-navy-700 text-white px-8 py-4 rounded-2xl shadow-xl">
-          <p className="text-lg font-semibold">
-            Rejoignez nos clients satisfaits et bénéficiez de notre expertise
-          </p>
-          <p className="text-sm text-slate-300 mt-2">
-            Des solutions personnalisées pour chaque projet
-          </p>
-        </div>
-      </div>
-
-      {/* CSS Animation */}
       <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          animation: marquee 60s linear infinite;
+        }
+        .hover\\:pause:hover {
+          animation-play-state: paused;
         }
       `}</style>
     </div>

@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Services } from './components/Services';
-import { Catalog } from './components/Catalog';
-import { References } from './components/References';
-import { Commitments } from './components/Commitments';
-import { QuoteForm } from './components/QuoteForm';
+import { Home } from './components/Home';
+import { History } from './components/History';
+import { DirectorWord } from './components/DirectorWord';
+import { CFOService } from './components/CFOService';
+import { CFAService } from './components/CFAService';
+import { EventService } from './components/EventService';
+import { MTService } from './components/MTService';
+import { EVService } from './components/EVService';
+import { SolarService } from './components/SolarService';
+import { MaintenanceService } from './components/MaintenanceService';
+import { OfficeService } from './components/OfficeService';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
-import { Phone, CheckCircle, Zap } from 'lucide-react';
+
+// Wrapper to handle scroll to top on route change
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,48 +36,32 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col text-slate-900 dark:text-white bg-white dark:bg-navy-950 transition-colors duration-300">
-      {/* Navigation */}
-      <Navbar isScrolled={isScrolled} />
+    <Router>
+      <ScrollToTop />
+      <div className="min-h-screen flex flex-col text-slate-900 dark:text-white bg-white dark:bg-navy-950 transition-colors duration-300">
+        {/* Navigation */}
+        <Navbar isScrolled={isScrolled} />
 
-      {/* Main Content */}
-      <main className="flex-grow">
-        <section id="accueil">
-          <Hero />
-        </section>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/histoire" element={<History />} />
+          <Route path="/mot-du-directeur" element={<DirectorWord />} />
+          <Route path="/services/cfo" element={<CFOService />} />
+          <Route path="/services/cfa" element={<CFAService />} />
+          <Route path="/services/events" element={<EventService />} />
+          <Route path="/services/mt" element={<MTService />} />
+          <Route path="/services/ev" element={<EVService />} />
+          <Route path="/services/solar" element={<SolarService />} />
+          <Route path="/services/offices" element={<OfficeService />} />
+          <Route path="/services/maintenance" element={<MaintenanceService />} />
+        </Routes>
 
-        <section id="services" className="bg-slate-50 dark:bg-navy-900 transition-colors duration-300">
-          <Services />
-        </section>
-
-        <section id="vente-location" className="bg-white dark:bg-navy-950 transition-colors duration-300">
-          <Catalog />
-        </section>
-
-        <section id="references" className="bg-slate-50 dark:bg-navy-900 transition-colors duration-300">
-          <References />
-        </section>
-
-        <section id="engagements" className="bg-slate-100 dark:bg-navy-900 transition-colors duration-300">
-          <Commitments />
-        </section>
-
-        <section id="contact" className="bg-slate-50 dark:bg-navy-950 relative overflow-hidden transition-colors duration-300">
-          {/* Decorative background element */}
-          <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-             <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-               <path d="M0 100 L100 0 L100 100 Z" fill="currentColor" />
-             </svg>
-          </div>
-          <QuoteForm />
-        </section>
-      </main>
-
-      {/* Footer */}
-      <Footer />
-      
-      {/* Floating Action */}
-      <WhatsAppButton />
-    </div>
+        {/* Footer */}
+        <Footer />
+        
+        {/* Floating Action */}
+        <WhatsAppButton />
+      </div>
+    </Router>
   );
 }

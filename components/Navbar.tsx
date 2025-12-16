@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Menu, X, ChevronRight, ArrowRight, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Menu, X, ChevronRight, ArrowRight, Mail, MapPin, Clock, History, User } from 'lucide-react';
 import { Logo } from './Logo';
 import { ThemeToggle } from './ThemeToggle';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 interface NavbarProps {
   isScrolled: boolean;
@@ -9,6 +10,8 @@ interface NavbarProps {
 
 export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   // Close mobile menu when resizing to desktop
   useEffect(() => {
@@ -30,6 +33,21 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
     }
   }, [isMobileMenuOpen]);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.querySelector(href);
+        if (element) element.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const element = document.querySelector(href);
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   const navLinks = [
     { label: 'Accueil', href: '#accueil' },
     { label: 'Expertises', href: '#services' },
@@ -42,8 +60,8 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   return (
     <>
       {/* Top Bar - Professional Info */}
-      <div className={`fixed top-0 left-0 w-full z-[60] bg-navy-950 text-gray-400 text-xs border-b border-white/5 transition-transform duration-300 hidden lg:block ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl h-10 flex justify-between items-center">
+      <div className="hidden lg:block bg-navy-950 text-gray-400 text-xs border-b border-white/5 relative z-[60]">
+        <div className="w-full px-6 lg:px-12 h-10 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 hover:text-white transition-colors"><Mail className="w-3 h-3 text-electric-red" /> info@multireseaux.ma</span>
             <span className="flex items-center gap-2 hover:text-white transition-colors"><MapPin className="w-3 h-3 text-electric-red" /> Casablanca, Maroc</span>
@@ -57,61 +75,72 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
 
       {/* Main Header */}
       <header 
-        className={`fixed left-0 w-full z-50 transition-all duration-500 ease-in-out border-b border-transparent ${
+        className={`sticky top-0 w-full z-50 transition-all duration-300 border-b ${
           isScrolled 
-            ? 'top-0 bg-navy-950/95 backdrop-blur-md py-2 border-white/10 shadow-2xl' 
-            : 'top-10 bg-gradient-to-b from-navy-900/80 to-transparent py-4'
+            ? 'bg-white dark:bg-navy-900 border-gray-200 dark:border-navy-700 shadow-md py-2' 
+            : 'bg-white dark:bg-navy-900 border-gray-200 dark:border-navy-700 py-4'
         }`}
       >
-        <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+        <div className="w-full px-6 lg:px-12">
           <div className="flex justify-between items-center relative">
             
             {/* Logo Section (Left) */}
-            <div className="flex justify-start -ml-4">
-              <a href="#" className="flex items-center gap-3 group relative z-50">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-electric-red/20 blur-2xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <Logo className={`transition-all duration-300 relative z-10 drop-shadow-lg ${isScrolled ? 'w-12 h-12' : 'w-16 h-16'}`} />
+            <div className="flex-shrink-0 flex items-center w-[240px]">
+              <Link to="/" className="flex items-center gap-3 group">
+                <Logo className={`transition-all duration-300 ${isScrolled ? 'w-10 h-10' : 'w-12 h-12'}`} />
+                <div className="flex flex-col">
+                  <span className={`font-bold tracking-tight leading-none text-navy-900 dark:text-white ${isScrolled ? 'text-lg' : 'text-xl'}`}>
+                    MULTI<span className="text-electric-red">RESEAUX</span>
+                  </span>
+                  <span className="text-[10px] text-gray-500 dark:text-gray-400 tracking-[0.2em] uppercase mt-0.5">Solutions Techniques</span>
                 </div>
-              </a>
+              </Link>
             </div>
 
             {/* Desktop Navigation (Center) */}
-            <nav className="hidden lg:flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 -ml-24 z-40 items-center justify-center gap-1 bg-navy-900/50 backdrop-blur-sm px-1.5 py-1 rounded-full border border-white/10 shadow-lg shadow-black/20">
+            <nav className="hidden lg:flex items-center justify-center gap-6 absolute left-1/2 transform -translate-x-1/2">
               {navLinks.map((link) => (
                 <a 
                   key={link.label} 
                   href={link.href}
-                  className="relative px-4 py-2 text-xs font-bold uppercase tracking-wider text-gray-300 hover:text-white transition-all duration-300 rounded-full hover:bg-white/10 group whitespace-nowrap flex items-center justify-center"
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="text-xs font-bold uppercase tracking-wide text-navy-900 dark:text-gray-300 hover:text-electric-red dark:hover:text-white transition-colors relative group py-2"
                 >
-                  <span className="relative z-10">{link.label}</span>
+                  {link.label}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-electric-red transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
+              
+              {/* Dropdown-style links for extra pages */}
+              <div className="h-4 w-px bg-gray-300 dark:bg-gray-700 mx-2"></div>
+
+              <Link 
+                to="/histoire"
+                className={`text-xs font-bold uppercase tracking-wide transition-colors hover:text-electric-red ${location.pathname === '/histoire' ? 'text-electric-red' : 'text-navy-900 dark:text-gray-300'}`}
+              >
+                Histoire
+              </Link>
+
+              <Link 
+                to="/mot-du-directeur"
+                className={`text-xs font-bold uppercase tracking-wide transition-colors hover:text-electric-red ${location.pathname === '/mot-du-directeur' ? 'text-electric-red' : 'text-navy-900 dark:text-gray-300'}`}
+              >
+                Directeur
+              </Link>
             </nav>
 
             {/* Desktop CTA (Right) */}
-            <div className="hidden lg:flex justify-end items-center gap-4 -mr-12">
-              <div className="flex flex-col items-end text-right">
-                <a href="tel:+212694934280" className="text-xs font-bold text-white hover:text-electric-red transition-colors flex items-center gap-2 group">
-                  <div className="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-electric-red group-hover:border-electric-red transition-all">
-                    <Phone className="w-3.5 h-3.5" />
-                  </div>
-                  <span className="font-mono tracking-wide">06 94 93 42 80</span>
-                </a>
-              </div>
-              
-              <a 
-                href="#contact" 
-                className="relative overflow-hidden bg-electric-red hover:bg-red-600 text-white text-[10px] font-bold py-2.5 px-5 rounded-sm uppercase tracking-wider transition-all duration-300 group shadow-lg shadow-electric-red/20 hover:shadow-electric-red/40"
-              >
-                <span className="relative z-10 flex items-center gap-2">
-                  Devis Gratuit <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </a>
-
-              <div className="pl-2 border-l border-white/10">
+            <div className="hidden lg:flex items-center justify-end gap-4 w-[240px]">
+              <div className="pr-4 border-r border-gray-200 dark:border-gray-700">
                 <ThemeToggle />
               </div>
+
+              <a 
+                href="#contact" 
+                className="bg-electric-red hover:bg-red-700 text-white text-[10px] font-bold py-2.5 px-5 uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 rounded-sm whitespace-nowrap"
+              >
+                Demander un devis
+              </a>
             </div>
 
             {/* Mobile Toggle Button (Right) */}
@@ -148,13 +177,39 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                 className={`text-3xl font-bold text-white hover:text-electric-red transition-all duration-500 flex items-center gap-6 group ${
                   isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
                 }`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href)}
                 style={{ transitionDelay: `${idx * 100}ms` }}
               >
                 <span className="text-sm text-electric-red font-mono border border-electric-red/30 px-2 py-1 rounded opacity-50 group-hover:opacity-100 transition-opacity">0{idx + 1}</span>
                 {link.label}
               </a>
             ))}
+            
+            {/* Mobile History Link */}
+            <Link 
+              to="/histoire"
+              className={`text-3xl font-bold text-white hover:text-electric-red transition-all duration-500 flex items-center gap-6 group ${
+                isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              style={{ transitionDelay: `${navLinks.length * 100}ms` }}
+            >
+              <span className="text-sm text-electric-red font-mono border border-electric-red/30 px-2 py-1 rounded opacity-50 group-hover:opacity-100 transition-opacity">0{navLinks.length + 1}</span>
+              Notre Histoire
+            </Link>
+
+            {/* Mobile Director Word Link */}
+            <Link 
+              to="/mot-du-directeur"
+              className={`text-3xl font-bold text-white hover:text-electric-red transition-all duration-500 flex items-center gap-6 group ${
+                isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              style={{ transitionDelay: `${(navLinks.length + 1) * 100}ms` }}
+            >
+              <span className="text-sm text-electric-red font-mono border border-electric-red/30 px-2 py-1 rounded opacity-50 group-hover:opacity-100 transition-opacity">0{navLinks.length + 2}</span>
+              Mot du Directeur
+            </Link>
           </div>
 
           <div className={`mt-12 pt-12 border-t border-white/10 flex flex-col gap-8 transition-all duration-700 delay-300 ${
