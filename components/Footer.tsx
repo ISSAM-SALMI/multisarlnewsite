@@ -107,12 +107,8 @@ export const Footer: React.FC = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10 bg-black/20 backdrop-blur-md">
-        <div className="container mx-auto px-4 md:px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+        <div className="container mx-auto px-4 py-6 flex justify-center items-center text-sm text-gray-400 font-light tracking-wider">
           <p>© {currentYear} MULTIRESAUX SARL. Tous droits réservés.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">Mentions Légales</a>
-            <a href="#" className="hover:text-white transition-colors">Politique de Confidentialité</a>
-          </div>
         </div>
       </div>
     </footer>
