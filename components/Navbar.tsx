@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   // Close mobile menu when resizing to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1280) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -60,8 +60,8 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
   return (
     <>
       {/* Top Bar - Professional Info */}
-      <div className="hidden lg:block bg-navy-950 text-gray-400 text-xs border-b border-white/5 relative z-[60]">
-        <div className="w-full px-6 lg:px-12 h-10 flex justify-between items-center">
+      <div className="hidden xl:block bg-navy-950 text-gray-400 text-xs border-b border-white/5 relative z-[60]">
+        <div className="w-full px-6 xl:px-12 h-10 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2 hover:text-white transition-colors"><Mail className="w-3 h-3 text-electric-red" /> info@multireseaux.ma</span>
             <span className="flex items-center gap-2 hover:text-white transition-colors"><MapPin className="w-3 h-3 text-electric-red" /> Ain Sebaa, Casablanca</span>
@@ -81,14 +81,14 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             : 'bg-white dark:bg-navy-900 border-gray-200 dark:border-navy-700 py-3 md:py-4'
         }`}
       >
-        <div className="w-full px-4 lg:px-12">
+        <div className="w-full px-4 xl:px-12">
           <div className="flex justify-between items-center relative">
             
             {/* Logo Section (Left) */}
-            <div className="flex-shrink-0 flex items-center w-auto lg:w-[200px] xl:w-[240px]">
+            <div className="flex-shrink-0 flex items-center w-auto xl:w-[240px]">
               <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
                 <Logo className={`transition-all duration-300 ${isScrolled ? 'w-8 h-8 sm:w-10 sm:h-10' : 'w-10 h-10 sm:w-12 sm:h-12'} brightness-0 dark:brightness-100`} />
-                <div className="hidden lg:flex flex-col">
+                <div className="hidden xl:flex flex-col">
                   <span className={`font-bold tracking-tight leading-none text-navy-900 dark:text-white ${isScrolled ? 'text-lg' : 'text-xl'}`}>
                     MULTI<span className="text-electric-red">RESEAUX</span>
                   </span>
@@ -98,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             </div>
 
             {/* Desktop Navigation (Center) */}
-            <nav className="hidden lg:flex items-center justify-center gap-2 xl:gap-6 flex-1 px-2 xl:px-4">
+            <nav className="hidden xl:flex items-center justify-center gap-6 flex-1 px-4">
               {navLinks.map((link) => (
                 <a 
                   key={link.label} 
@@ -130,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             </nav>
 
             {/* Desktop CTA (Right) */}
-            <div className="hidden lg:flex items-center justify-end gap-4 w-[200px] xl:w-[240px]">
+            <div className="hidden xl:flex items-center justify-end gap-4 w-[240px]">
               <div className="pr-4 border-r border-gray-200 dark:border-gray-700">
                 <ThemeToggle />
               </div>
@@ -144,7 +144,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             </div>
 
             {/* Mobile Toggle Button (Right) */}
-            <div className="lg:hidden flex justify-end items-center gap-2 sm:gap-3">
+            <div className="xl:hidden flex justify-end items-center gap-2 sm:gap-3">
               <a href="tel:+212694934280" className="p-1.5 sm:p-2 text-electric-red hover:bg-electric-red/10 rounded-full transition-colors">
                 <Phone size={18} className="sm:w-5 sm:h-5" />
               </a>
@@ -169,7 +169,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 z-40 bg-white dark:bg-navy-950 backdrop-blur-xl transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-white dark:bg-navy-950 backdrop-blur-xl transition-all duration-500 xl:hidden ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >

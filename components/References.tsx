@@ -79,12 +79,12 @@ export function References() {
           {marqueeClients.map((client, index) => (
             <div 
               key={`${client.name}-${index}`}
-              className="mx-4 md:mx-8 w-40 h-24 md:w-52 md:h-32 bg-white dark:bg-navy-800 rounded-xl shadow-sm border border-slate-100 dark:border-white/5 flex items-center justify-center p-6 group transition-all duration-300 hover:shadow-md hover:border-electric-red/30 hover:-translate-y-1"
+              className="mx-3 md:mx-6 w-44 h-28 md:w-60 md:h-36 bg-white rounded-2xl shadow-sm border border-slate-200 dark:border-white/10 flex items-center justify-center p-4 group transition-all duration-300 hover:shadow-lg hover:border-electric-red/30 hover:-translate-y-1"
             >
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-w-full max-h-full w-auto h-auto object-contain transition-all duration-500 hover:scale-110"
+                className="max-w-full max-h-full w-auto h-auto object-contain filter grayscale-0 hover:grayscale-0 transition-all duration-500 hover:scale-110"
                 loading="lazy"
               />
             </div>
