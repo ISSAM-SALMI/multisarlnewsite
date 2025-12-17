@@ -52,7 +52,7 @@ export const OfficeService: React.FC = () => {
           <div className="inline-flex items-center justify-center p-3 bg-indigo-100 dark:bg-indigo-900/30 rounded-xl mb-6">
             <Building2 className="w-8 h-8 text-indigo-600" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
             Bureaux et Hangars
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -91,7 +91,7 @@ export const OfficeService: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
+          <div className="relative h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
             <img 
               src="/images/Conce/image (1).png" 
               alt="Aménagement Bureau" 

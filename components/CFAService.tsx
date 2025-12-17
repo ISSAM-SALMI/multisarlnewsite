@@ -66,7 +66,7 @@ export const CFAService: React.FC = () => {
           <div className="inline-flex items-center justify-center p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl mb-6">
             <Wifi className="w-8 h-8 text-electric-blue" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
             Service CFA – Courant Faible
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">

@@ -30,11 +30,11 @@ export const Catalog: React.FC = () => {
   ];
 
   return (
-    <div className="py-24 container mx-auto px-4 md:px-6">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+    <div className="py-12 md:py-24 container mx-auto px-4 md:px-6">
+      <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-16">
         <div className="max-w-2xl">
           <span className="text-electric-red font-bold tracking-wider uppercase text-sm mb-2 block">Catalogue Professionnel</span>
-          <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white transition-colors">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy-900 dark:text-white transition-colors">
             Vente & Location de Matériel
           </h2>
           <p className="text-gray-600 dark:text-gray-400 mt-4 text-lg transition-colors">

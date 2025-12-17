@@ -6,13 +6,13 @@ export const QuoteForm: React.FC = () => {
   const [sector, setSector] = useState<Sector | ''>('');
   
   return (
-    <div className="container mx-auto px-4 md:px-6 py-24 relative z-10">
+    <div className="container mx-auto px-4 md:px-6 py-12 md:py-24 relative z-10">
       <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
         
         {/* Left Side: Info */}
-        <div className="bg-navy-900 dark:bg-navy-800 p-10 text-white md:w-2/5 flex flex-col justify-between relative overflow-hidden transition-colors">
+        <div className="bg-navy-900 dark:bg-navy-800 p-6 md:p-10 text-white md:w-2/5 flex flex-col justify-between relative overflow-hidden transition-colors">
           <div className="relative z-10">
-            <h2 className="text-3xl font-bold mb-6">Parlons de votre projet</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-6">Parlons de votre projet</h2>
             <p className="text-gray-300 mb-8 leading-relaxed">
               Recevez une estimation détaillée sous 24h. Nos ingénieurs analysent votre besoin pour vous proposer la solution technique la plus adaptée.
             </p>

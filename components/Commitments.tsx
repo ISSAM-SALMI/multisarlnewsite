@@ -31,9 +31,9 @@ export const Commitments: React.FC = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 md:px-6 py-20">
-      <div className="text-center mb-16 max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-4 transition-colors">
+    <div className="container mx-auto px-4 md:px-6 py-12 md:py-20">
+      <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy-900 dark:text-white mb-4 transition-colors">
           Nos Engagements
         </h2>
         <div className="h-1 w-20 bg-electric-red mx-auto mb-6"></div>

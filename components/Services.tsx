@@ -57,9 +57,9 @@ export const Services: React.FC = () => {
   ];
 
   return (
-    <div className="py-24 container mx-auto px-4 md:px-6">
-      <div className="text-center mb-16 max-w-3xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-4 transition-colors">
+    <div className="py-12 md:py-24 container mx-auto px-4 md:px-6">
+      <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy-900 dark:text-white mb-4 transition-colors">
           Nos Domaines d'Intervention
         </h2>
         <div className="h-1 w-20 bg-electric-red mx-auto mb-6"></div>
@@ -68,7 +68,7 @@ export const Services: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-auto gap-6 mb-24">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-24">
         {services.map((service) => (
           <div 
             key={service.id}

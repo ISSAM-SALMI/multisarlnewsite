@@ -33,18 +33,18 @@ export function References() {
   const marqueeClients = [...clients, ...clients, ...clients, ...clients];
 
   return (
-    <div className="py-24 bg-slate-50 dark:bg-navy-900 overflow-hidden relative">
+    <div className="py-12 md:py-24 bg-slate-50 dark:bg-navy-900 overflow-hidden relative">
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent"></div>
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 md:mb-16 text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-electric-red/10 text-electric-red font-bold text-sm uppercase tracking-wider mb-6">
           <Award className="w-4 h-4" />
           <span>Nos Références</span>
         </div>
         
-        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-navy-900 dark:text-white">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-navy-900 dark:text-white">
           Ils Nous Font Confiance
         </h2>
         

@@ -14,8 +14,8 @@ export const Footer: React.FC = () => {
       <div className="absolute top-0 right-0 w-96 h-96 bg-electric-red/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-900/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
 
-      <div className="container mx-auto px-4 md:px-6 pt-20 pb-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div className="container mx-auto px-4 md:px-6 pt-12 md:pt-20 pb-12 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 md:mb-16">
           
           {/* Brand Column */}
           <div className="space-y-8">

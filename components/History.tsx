@@ -5,7 +5,7 @@ export const History: React.FC = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-navy-950 transition-colors duration-300">
       {/* Hero Section */}
-      <div className="relative bg-navy-900 pt-32 pb-20 overflow-hidden">
+      <div className="relative bg-navy-900 pt-24 pb-12 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-electric-red/20 opacity-90"></div>
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80')] bg-cover bg-center mix-blend-overlay opacity-20"></div>
         
@@ -14,7 +14,7 @@ export const History: React.FC = () => {
             <Calendar className="w-4 h-4" />
             <span>Depuis 2010</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+          <h1 className="text-3xl md:text-6xl font-bold text-white mb-6">
             Notre Histoire
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">

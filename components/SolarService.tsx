@@ -62,7 +62,7 @@ export const SolarService: React.FC = () => {
           <div className="inline-flex items-center justify-center p-3 bg-orange-100 dark:bg-orange-900/30 rounded-xl mb-6">
             <Sun className="w-8 h-8 text-orange-500" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
             Service Énergie Solaire
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">

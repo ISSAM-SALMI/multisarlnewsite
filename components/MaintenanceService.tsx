@@ -44,7 +44,7 @@ export const MaintenanceService: React.FC = () => {
           <div className="inline-flex items-center justify-center p-3 bg-gray-200 dark:bg-gray-800 rounded-xl mb-6">
             <Wrench className="w-8 h-8 text-gray-600 dark:text-gray-300" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
+          <h1 className="text-3xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
             Maintenance & Assistance
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
@@ -54,14 +54,14 @@ export const MaintenanceService: React.FC = () => {
 
         {/* Main Content */}
         <div className="max-w-6xl mx-auto mb-20">
-          <div className="bg-white dark:bg-navy-800 rounded-3xl p-8 md:p-12 shadow-2xl border border-slate-100 dark:border-navy-700 relative overflow-hidden">
+          <div className="bg-white dark:bg-navy-800 rounded-3xl p-6 md:p-12 shadow-2xl border border-slate-100 dark:border-navy-700 relative overflow-hidden">
             {/* Decorative background elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-gray-500/5 rounded-full blur-3xl -ml-16 -mb-16"></div>
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-navy-900 dark:text-white mb-6 leading-tight">
+                <h2 className="text-2xl md:text-4xl font-bold text-navy-900 dark:text-white mb-6 leading-tight">
                   Pourquoi la maintenance est <span className="text-blue-600 dark:text-blue-400">essentielle ?</span>
                 </h2>
                 <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
