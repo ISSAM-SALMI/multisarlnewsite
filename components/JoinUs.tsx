@@ -283,21 +283,21 @@ export const JoinUs: React.FC = () => {
               <div className="lg:col-span-1">
                 <div className="sticky top-24 space-y-6">
                   {/* Apply Card */}
-                  <div className="bg-navy-900 rounded-2xl p-6 shadow-xl text-white relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-electric-red/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
+                  <div className="bg-white dark:bg-navy-900 rounded-2xl p-6 shadow-xl text-navy-900 dark:text-white relative overflow-hidden border border-slate-100 dark:border-navy-700">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-electric-red/5 dark:bg-electric-red/10 rounded-full blur-2xl -mr-10 -mt-10"></div>
                     <div className="relative z-10">
                       <h3 className="text-xl font-bold mb-2">Intéressé(e) ?</h3>
-                      <p className="text-gray-300 text-sm mb-6">
+                      <p className="text-slate-600 dark:text-gray-300 text-sm mb-6">
                         Envoyez-nous votre candidature dès maintenant.
                       </p>
                       
                       {job?.status !== 'Clôturé' ? (
                         <>
-                          <p className="text-sm text-gray-400 mb-2">Postulez à cette adresse :</p>
-                          <div className="bg-white/5 rounded-xl p-4 border border-white/10 text-center">
+                          <p className="text-sm text-slate-500 dark:text-gray-400 mb-2">Postulez à cette adresse :</p>
+                          <div className="bg-slate-50 dark:bg-white/5 rounded-xl p-4 border border-slate-200 dark:border-white/10 text-center">
                             <a 
                               href={`mailto:info@multireseaux.ma?subject=Candidature - ${job?.title}`}
-                              className="text-lg font-bold text-electric-red hover:text-red-400 transition-colors flex items-center justify-center gap-2"
+                              className="text-lg font-bold text-electric-red hover:text-red-600 dark:hover:text-red-400 transition-colors flex items-center justify-center gap-2"
                             >
                               <Mail className="w-4 h-4" />
                               info@multireseaux.ma
@@ -305,12 +305,12 @@ export const JoinUs: React.FC = () => {
                           </div>
                         </>
                       ) : (
-                        <button disabled className="w-full bg-slate-700 text-slate-400 font-bold py-4 px-6 rounded-xl cursor-not-allowed flex items-center justify-center gap-2">
+                        <button disabled className="w-full bg-slate-100 dark:bg-slate-700 text-slate-400 font-bold py-4 px-6 rounded-xl cursor-not-allowed flex items-center justify-center gap-2">
                           Offre Clôturée
                         </button>
                       )}
                       
-                      <p className="text-xs text-center text-gray-500 mt-4">
+                      <p className="text-xs text-center text-slate-400 dark:text-gray-500 mt-4">
                         Réponse sous 2 à 3 semaines
                       </p>
                     </div>
