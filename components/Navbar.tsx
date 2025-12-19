@@ -127,6 +127,13 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
               >
                 Directeur
               </Link>
+
+              <Link 
+                to="/nous-rejoindre"
+                className={`text-xs font-bold uppercase tracking-wide transition-colors hover:text-electric-red ${location.pathname.startsWith('/nous-rejoindre') ? 'text-electric-red' : 'text-navy-900 dark:text-gray-300'}`}
+              >
+                Nous rejoindre
+              </Link>
             </nav>
 
             {/* Desktop CTA (Right) */}
@@ -223,6 +230,20 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             >
               <span className="text-xs font-mono text-electric-red border border-electric-red/30 px-2 py-1 rounded-md group-hover:bg-electric-red group-hover:text-white transition-all duration-300">0{navLinks.length + 2}</span>
               <span className="tracking-tight">Mot du Directeur</span>
+              <ChevronRight className="w-5 h-5 ml-auto opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-electric-red" />
+            </Link>
+
+            {/* Mobile Join Us Link */}
+            <Link 
+              to="/nous-rejoindre"
+              className={`text-lg sm:text-xl md:text-2xl font-bold text-navy-900 dark:text-white hover:text-electric-red transition-all duration-300 flex items-center gap-4 p-3 -mx-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 group ${
+                isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
+              }`}
+              onClick={() => setIsMobileMenuOpen(false)}
+              style={{ transitionDelay: `${(navLinks.length + 2) * 75}ms` }}
+            >
+              <span className="text-xs font-mono text-electric-red border border-electric-red/30 px-2 py-1 rounded-md group-hover:bg-electric-red group-hover:text-white transition-all duration-300">0{navLinks.length + 3}</span>
+              <span className="tracking-tight">Nous rejoindre</span>
               <ChevronRight className="w-5 h-5 ml-auto opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-electric-red" />
             </Link>
           </div>

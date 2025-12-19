@@ -12,6 +12,7 @@ import { EVService } from './components/EVService';
 import { SolarService } from './components/SolarService';
 import { MaintenanceService } from './components/MaintenanceService';
 import { OfficeService } from './components/OfficeService';
+import { JoinUs } from './components/JoinUs';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
@@ -54,6 +55,8 @@ export default function App() {
           <Route path="/services/solar" element={<SolarService />} />
           <Route path="/services/offices" element={<OfficeService />} />
           <Route path="/services/maintenance" element={<MaintenanceService />} />
+          <Route path="/nous-rejoindre" element={<JoinUs />} />
+          <Route path="/nous-rejoindre/:jobId" element={<JoinUs />} />
         </Routes>
 
         {/* Footer */}

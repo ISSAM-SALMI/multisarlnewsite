@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, ChevronRight, CheckCircle2, Zap, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, ChevronRight, CheckCircle2, Zap, MapPin, Users } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
@@ -68,6 +69,14 @@ export const Hero: React.FC = () => {
               DEMANDER UN DEVIS
               <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
             </a>
+
+            <Link 
+              to="/nous-rejoindre" 
+              className="group px-6 py-3 bg-blue-600/80 hover:bg-blue-600 text-white font-bold text-sm sm:text-base rounded shadow-lg shadow-blue-900/40 transition-all hover:-translate-y-1 flex items-center justify-center gap-2 backdrop-blur-sm"
+            >
+              NOUS REJOINDRE
+              <Users className="w-4 h-4 text-white transition-colors" />
+            </Link>
           </div>
         </div>
       </div>

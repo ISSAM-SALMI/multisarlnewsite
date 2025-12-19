@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Mail, Phone, Linkedin, Instagram, ArrowRight, ChevronRight, ShieldCheck } from 'lucide-react';
 import { Logo } from './Logo';
 
@@ -71,13 +72,21 @@ export const Footer: React.FC = () => {
                 { label: 'Expertises', href: '#services' },
                 { label: 'Catalogue', href: '#vente-location' },
                 { label: 'Engagements', href: '#engagements' },
-                { label: 'Devis Gratuit', href: '#contact' }
+                { label: 'Devis Gratuit', href: '#contact' },
+                { label: 'Nous rejoindre', href: '/nous-rejoindre' }
               ].map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300">
-                    <span className="w-1.5 h-1.5 rounded-full bg-electric-red/50 group-hover:bg-electric-red transition-colors"></span>
-                    <span className="text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">{link.label}</span>
-                  </a>
+                  {link.href.startsWith('/') ? (
+                    <Link to={link.href} className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-electric-red/50 group-hover:bg-electric-red transition-colors"></span>
+                      <span className="text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">{link.label}</span>
+                    </Link>
+                  ) : (
+                    <a href={link.href} className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300">
+                      <span className="w-1.5 h-1.5 rounded-full bg-electric-red/50 group-hover:bg-electric-red transition-colors"></span>
+                      <span className="text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">{link.label}</span>
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
