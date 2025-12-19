@@ -68,25 +68,18 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-4">
               {[
-                { label: 'Accueil', href: '#accueil' },
-                { label: 'Expertises', href: '#services' },
-                { label: 'Catalogue', href: '#vente-location' },
-                { label: 'Engagements', href: '#engagements' },
-                { label: 'Devis Gratuit', href: '#contact' },
+                { label: 'Accueil', href: '/#accueil' },
+                { label: 'Expertises', href: '/#services' },
+                { label: 'Catalogue', href: '/#vente-location' },
+                { label: 'Engagements', href: '/#engagements' },
+                { label: 'Devis Gratuit', href: '/#contact' },
                 { label: 'Nous rejoindre', href: '/nous-rejoindre' }
               ].map((link) => (
                 <li key={link.label}>
-                  {link.href.startsWith('/') ? (
-                    <Link to={link.href} className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300">
-                      <span className="w-1.5 h-1.5 rounded-full bg-electric-red/50 group-hover:bg-electric-red transition-colors"></span>
-                      <span className="text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">{link.label}</span>
-                    </Link>
-                  ) : (
-                    <a href={link.href} className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300">
-                      <span className="w-1.5 h-1.5 rounded-full bg-electric-red/50 group-hover:bg-electric-red transition-colors"></span>
-                      <span className="text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">{link.label}</span>
-                    </a>
-                  )}
+                  <Link to={link.href} className="group flex items-center gap-3 text-gray-400 hover:text-white transition-colors duration-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-electric-red/50 group-hover:bg-electric-red transition-colors"></span>
+                    <span className="text-sm font-medium group-hover:translate-x-1 transition-transform duration-300">{link.label}</span>
+                  </Link>
                 </li>
               ))}
             </ul>

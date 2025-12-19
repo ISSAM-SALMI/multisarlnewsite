@@ -33,28 +33,17 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
     }
   }, [isMobileMenuOpen]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    if (location.pathname !== '/') {
-      navigate('/');
-      setTimeout(() => {
-        const element = document.querySelector(href);
-        if (element) element.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
-    } else {
-      const element = document.querySelector(href);
-      if (element) element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleNavClick = () => {
     setIsMobileMenuOpen(false);
   };
 
   const navLinks = [
-    { label: 'Accueil', href: '#accueil' },
-    { label: 'Expertises', href: '#services' },
-    { label: 'Location & Vente', href: '#vente-location' },
-    { label: 'Références', href: '#references' },
-    { label: 'Engagements', href: '#engagements' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Accueil', href: '/#accueil' },
+    { label: 'Expertises', href: '/#services' },
+    { label: 'Location & Vente', href: '/#vente-location' },
+    { label: 'Références', href: '/#references' },
+    { label: 'Engagements', href: '/#engagements' },
+    { label: 'Contact', href: '/#contact' },
   ];
 
   return (
@@ -100,15 +89,14 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
             {/* Desktop Navigation (Center) */}
             <nav className="hidden xl:flex items-center justify-center gap-6 flex-1 px-4">
               {navLinks.map((link) => (
-                <a 
+                <Link 
                   key={link.label} 
-                  href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
+                  to={link.href}
                   className="text-xs font-bold uppercase tracking-wide text-navy-900 dark:text-gray-300 hover:text-electric-red dark:hover:text-white transition-colors relative group py-2"
                 >
                   {link.label}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-electric-red transition-all duration-300 group-hover:w-full"></span>
-                </a>
+                </Link>
               ))}
               
               {/* Dropdown-style links for extra pages */}
@@ -142,12 +130,12 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                 <ThemeToggle />
               </div>
 
-              <a 
-                href="#contact" 
+              <Link 
+                to="/#contact" 
                 className="bg-electric-red hover:bg-red-700 text-white text-[10px] font-bold py-2.5 px-5 uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 rounded-sm whitespace-nowrap"
               >
                 Demander un devis
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Toggle Button (Right) */}
@@ -190,19 +178,19 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
 
           <div className="flex flex-col gap-2 sm:gap-3 relative z-10">
             {navLinks.map((link, idx) => (
-              <a 
+              <Link 
                 key={link.label} 
-                href={link.href}
+                to={link.href}
                 className={`text-lg sm:text-xl md:text-2xl font-bold text-navy-900 dark:text-white hover:text-electric-red transition-all duration-300 flex items-center gap-4 p-3 -mx-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 group ${
                   isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
                 }`}
-                onClick={(e) => handleNavClick(e, link.href)}
+                onClick={handleNavClick}
                 style={{ transitionDelay: `${idx * 75}ms` }}
               >
                 <span className="text-xs font-mono text-electric-red border border-electric-red/30 px-2 py-1 rounded-md group-hover:bg-electric-red group-hover:text-white transition-all duration-300">0{idx + 1}</span>
                 <span className="tracking-tight">{link.label}</span>
                 <ChevronRight className="w-5 h-5 ml-auto opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-electric-red" />
-              </a>
+              </Link>
             ))}
             
             {/* Mobile History Link */}
@@ -261,15 +249,15 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
                 </div>
              </div>
              
-             <a 
-              href="#contact" 
+             <Link 
+              to="/#contact" 
               className="group relative overflow-hidden bg-navy-950 dark:bg-white text-white dark:text-navy-950 text-center font-bold py-4 rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <span className="relative z-10 flex items-center gap-2">
                 DEMANDER UN DEVIS <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
