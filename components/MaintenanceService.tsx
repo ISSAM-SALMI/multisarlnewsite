@@ -37,34 +37,34 @@ export const MaintenanceService: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-navy-900 pt-24 pb-12">
+    <div className="min-h-screen bg-slate-50 dark:bg-navy-900 pt-20 pb-10 md:pt-24 md:pb-12">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
           <div className="inline-flex items-center justify-center p-3 bg-gray-200 dark:bg-gray-800 rounded-xl mb-6">
             <Wrench className="w-8 h-8 text-gray-600 dark:text-gray-300" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
+          <h1 className="text-2xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
             Maintenance & Assistance
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
             Garantir la fiabilité, la sécurité et la pérennité de vos installations électriques
           </p>
         </div>
 
         {/* Main Content */}
-        <div className="max-w-6xl mx-auto mb-20">
+        <div className="max-w-6xl mx-auto mb-16 md:mb-20">
           <div className="bg-white dark:bg-navy-800 rounded-3xl p-6 md:p-12 shadow-2xl border border-slate-100 dark:border-navy-700 relative overflow-hidden">
             {/* Decorative background elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl -mr-16 -mt-16"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-gray-500/5 rounded-full blur-3xl -ml-16 -mb-16"></div>
 
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+              <div className="text-center md:text-left">
                 <h2 className="text-2xl md:text-4xl font-bold text-navy-900 dark:text-white mb-6 leading-tight">
                   Pourquoi la maintenance est <span className="text-blue-600 dark:text-blue-400">essentielle ?</span>
                 </h2>
-                <div className="space-y-6 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                <div className="space-y-6 text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                   <p>
                     Une installation électrique, aussi performante soit-elle, nécessite un entretien régulier pour conserver ses caractéristiques initiales de sécurité et de fonctionnement.
                   </p>
@@ -77,8 +77,8 @@ export const MaintenanceService: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-slate-50 dark:bg-navy-900/50 rounded-2xl p-8 border border-slate-100 dark:border-navy-700">
-                <h3 className="text-xl font-bold text-navy-900 dark:text-white mb-6 flex items-center gap-2">
+              <div className="bg-slate-50 dark:bg-navy-900/50 rounded-2xl p-6 md:p-8 border border-slate-100 dark:border-navy-700">
+                <h3 className="text-xl font-bold text-navy-900 dark:text-white mb-6 flex items-center justify-center md:justify-start gap-2">
                   <CheckCircle2 className="w-6 h-6 text-green-500" />
                   Nos Engagements
                 </h3>
@@ -92,8 +92,8 @@ export const MaintenanceService: React.FC = () => {
                     "Optimisation des coûts"
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3 p-3 bg-white dark:bg-navy-800 rounded-lg shadow-sm border border-slate-100 dark:border-navy-700 hover:shadow-md transition-shadow">
-                      <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                      <span className="font-medium text-navy-900 dark:text-gray-200">{item}</span>
+                      <div className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0"></div>
+                      <span className="font-medium text-navy-900 dark:text-gray-200 text-sm md:text-base">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -103,12 +103,12 @@ export const MaintenanceService: React.FC = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-navy-900 dark:text-white mb-12">Nos Prestations de Maintenance</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mb-16 md:mb-20">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-navy-900 dark:text-white mb-8 md:mb-12">Nos Prestations de Maintenance</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white dark:bg-navy-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-navy-700 group hover:-translate-y-1">
-                <div className="w-12 h-12 bg-blue-50 dark:bg-navy-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div key={index} className="bg-white dark:bg-navy-800 p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-navy-700 group hover:-translate-y-1 text-center md:text-left">
+                <div className="w-12 h-12 bg-blue-50 dark:bg-navy-700 rounded-lg flex items-center justify-center mb-6 mx-auto md:mx-0 group-hover:scale-110 transition-transform">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-navy-900 dark:text-white mb-3">{feature.title}</h3>
@@ -121,18 +121,18 @@ export const MaintenanceService: React.FC = () => {
         </div>
 
         {/* CTA */}
-        <div className="bg-navy-900 rounded-3xl p-12 text-center relative overflow-hidden">
+        <div className="bg-navy-900 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-gray-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -ml-16 -mb-16"></div>
           
           <div className="relative z-10">
-            <h2 className="text-3xl font-bold text-white mb-6">Besoin d'un contrat de maintenance ?</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Besoin d'un contrat de maintenance ?</h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Ne laissez pas une panne paralyser votre activité. Contactez-nous pour définir ensemble le plan de maintenance adapté à vos besoins.
             </p>
             <Link 
               to="/#contact" 
-              className="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white font-bold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 shadow-lg shadow-gray-900/50"
+              className="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full transition-all transform hover:-translate-y-1 shadow-lg shadow-gray-900/50 text-sm md:text-base"
             >
               Nous contacter <ArrowRight className="w-5 h-5" />
             </Link>

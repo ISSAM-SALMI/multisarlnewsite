@@ -140,9 +140,6 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
 
             {/* Mobile Toggle Button (Right) */}
             <div className="xl:hidden flex justify-end items-center gap-2 sm:gap-3">
-              <a href="tel:+212694934280" className="p-1.5 sm:p-2 text-electric-red hover:bg-electric-red/10 rounded-full transition-colors">
-                <Phone size={18} className="sm:w-5 sm:h-5" />
-              </a>
               <div className="scale-90 sm:scale-100 origin-right">
                 <ThemeToggle />
               </div>
@@ -164,100 +161,71 @@ export const Navbar: React.FC<NavbarProps> = ({ isScrolled }) => {
 
       {/* Mobile Menu Overlay */}
       <div 
-        className={`fixed inset-0 z-40 bg-white dark:bg-navy-950 backdrop-blur-xl transition-all duration-500 xl:hidden ${
+        className={`fixed inset-0 z-40 bg-white/95 dark:bg-navy-950/95 backdrop-blur-2xl transition-all duration-500 xl:hidden ${
           isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >
-        <div className="flex flex-col h-full px-6 sm:px-8 relative overflow-y-auto overflow-x-hidden pt-24 pb-10">
+        <div className="flex flex-col h-full relative overflow-hidden">
            {/* Background Decoration */}
            <div className="absolute inset-0 z-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none" 
                 style={{ backgroundImage: 'radial-gradient(#94a3b8 1px, transparent 1px)', backgroundSize: '24px 24px' }}>
            </div>
-           <div className="absolute top-0 right-0 w-96 h-96 bg-electric-red/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-           <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+           <div className="absolute top-0 right-0 w-80 h-80 bg-electric-red/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+           <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
 
-          <div className="flex flex-col gap-2 sm:gap-3 relative z-10">
-            {navLinks.map((link, idx) => (
-              <Link 
-                key={link.label} 
-                to={link.href}
-                className={`text-lg sm:text-xl md:text-2xl font-bold text-navy-900 dark:text-white hover:text-electric-red transition-all duration-300 flex items-center gap-4 p-3 -mx-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 group ${
-                  isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
-                }`}
-                onClick={handleNavClick}
-                style={{ transitionDelay: `${idx * 75}ms` }}
-              >
-                <span className="text-xs font-mono text-electric-red border border-electric-red/30 px-2 py-1 rounded-md group-hover:bg-electric-red group-hover:text-white transition-all duration-300">0{idx + 1}</span>
-                <span className="tracking-tight">{link.label}</span>
-                <ChevronRight className="w-5 h-5 ml-auto opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-electric-red" />
-              </Link>
-            ))}
-            
-            {/* Mobile History Link */}
-            <Link 
-              to="/histoire"
-              className={`text-lg sm:text-xl md:text-2xl font-bold text-navy-900 dark:text-white hover:text-electric-red transition-all duration-300 flex items-center gap-4 p-3 -mx-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 group ${
-                isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ transitionDelay: `${navLinks.length * 75}ms` }}
-            >
-              <span className="text-xs font-mono text-electric-red border border-electric-red/30 px-2 py-1 rounded-md group-hover:bg-electric-red group-hover:text-white transition-all duration-300">0{navLinks.length + 1}</span>
-              <span className="tracking-tight">Notre Histoire</span>
-              <ChevronRight className="w-5 h-5 ml-auto opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-electric-red" />
-            </Link>
+          {/* Scrollable Content Area */}
+          <div className="flex-1 overflow-y-auto px-6 pt-24 pb-4">
+            <div className="flex flex-col gap-1 relative z-10">
+              {navLinks.map((link, idx) => (
+                <Link 
+                  key={link.label} 
+                  to={link.href}
+                  className={`group relative flex items-center gap-4 p-3 rounded-xl transition-all duration-300 ${
+                    isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+                  } hover:bg-gray-50 dark:hover:bg-white/5 active:scale-[0.98]`}
+                  onClick={handleNavClick}
+                  style={{ transitionDelay: `${idx * 50}ms` }}
+                >
+                  <span className="text-[10px] font-mono font-medium text-gray-400 group-hover:text-electric-red transition-colors w-6 border-r border-gray-200 dark:border-white/10 h-full flex items-center">0{idx + 1}</span>
+                  <span className="text-base font-bold text-navy-900 dark:text-white tracking-tight group-hover:translate-x-1 transition-transform duration-300 uppercase">{link.label}</span>
+                  <div className="ml-auto w-8 h-8 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center group-hover:bg-electric-red group-hover:text-white transition-all duration-300">
+                    <ChevronRight className="w-4 h-4" />
+                  </div>
+                </Link>
+              ))}
+              
+              <div className="h-px bg-gray-100 dark:bg-white/5 my-2 mx-4"></div>
 
-            {/* Mobile Director Word Link */}
-            <Link 
-              to="/mot-du-directeur"
-              className={`text-lg sm:text-xl md:text-2xl font-bold text-navy-900 dark:text-white hover:text-electric-red transition-all duration-300 flex items-center gap-4 p-3 -mx-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 group ${
-                isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ transitionDelay: `${(navLinks.length + 1) * 75}ms` }}
-            >
-              <span className="text-xs font-mono text-electric-red border border-electric-red/30 px-2 py-1 rounded-md group-hover:bg-electric-red group-hover:text-white transition-all duration-300">0{navLinks.length + 2}</span>
-              <span className="tracking-tight">Mot du Directeur</span>
-              <ChevronRight className="w-5 h-5 ml-auto opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-electric-red" />
-            </Link>
-
-            {/* Mobile Join Us Link */}
-            <Link 
-              to="/nous-rejoindre"
-              className={`text-lg sm:text-xl md:text-2xl font-bold text-navy-900 dark:text-white hover:text-electric-red transition-all duration-300 flex items-center gap-4 p-3 -mx-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/5 group ${
-                isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'
-              }`}
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ transitionDelay: `${(navLinks.length + 2) * 75}ms` }}
-            >
-              <span className="text-xs font-mono text-electric-red border border-electric-red/30 px-2 py-1 rounded-md group-hover:bg-electric-red group-hover:text-white transition-all duration-300">0{navLinks.length + 3}</span>
-              <span className="tracking-tight">Nous rejoindre</span>
-              <ChevronRight className="w-5 h-5 ml-auto opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-electric-red" />
-            </Link>
+              {/* Secondary Links */}
+              {[
+                { to: "/histoire", label: "Notre Histoire", idx: navLinks.length },
+                { to: "/mot-du-directeur", label: "Mot du Directeur", idx: navLinks.length + 1 },
+                { to: "/nous-rejoindre", label: "Nous rejoindre", idx: navLinks.length + 2 }
+              ].map((item, i) => (
+                <Link 
+                  key={item.to}
+                  to={item.to}
+                  className={`group relative flex items-center gap-4 p-3 rounded-xl transition-all duration-300 ${
+                    isMobileMenuOpen ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
+                  } hover:bg-gray-50 dark:hover:bg-white/5 active:scale-[0.98]`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ transitionDelay: `${item.idx * 50}ms` }}
+                >
+                  <span className="text-[10px] font-mono font-medium text-gray-400 group-hover:text-electric-red transition-colors w-6 border-r border-gray-200 dark:border-white/10 h-full flex items-center">0{item.idx + 1}</span>
+                  <span className="text-sm font-bold text-navy-900 dark:text-gray-200 tracking-tight group-hover:translate-x-1 transition-transform duration-300 uppercase">{item.label}</span>
+                  <div className="ml-auto w-6 h-6 rounded-full bg-gray-50 dark:bg-white/5 flex items-center justify-center group-hover:bg-electric-red group-hover:text-white transition-all duration-300">
+                    <ChevronRight className="w-3 h-3" />
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
 
-          <div className={`mt-6 pt-6 sm:mt-8 sm:pt-8 border-t border-gray-200 dark:border-white/10 flex flex-col gap-4 sm:gap-6 transition-all duration-700 delay-300 ${
-             isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          {/* Bottom Fixed Area */}
+          <div className={`p-6 bg-white/80 dark:bg-navy-950/80 backdrop-blur-md border-t border-gray-100 dark:border-white/5 transition-all duration-700 delay-200 ${
+             isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
           }`}>
-             <div className="flex items-center gap-4 text-navy-900 dark:text-white p-4 bg-gray-50 dark:bg-white/5 rounded-2xl border border-gray-200 dark:border-white/5 shadow-sm dark:shadow-none transition-all duration-300">
-                <div className="w-12 h-12 rounded-full bg-electric-red flex items-center justify-center text-white shadow-lg shadow-electric-red/30 shrink-0">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-1">Service Client</p>
-                  <p className="text-2xl font-bold font-mono tracking-tight">06 94 93 42 80</p>
-                </div>
-             </div>
-             
-             <Link 
-              to="/#contact" 
-              className="group relative overflow-hidden bg-navy-950 dark:bg-white text-white dark:text-navy-950 text-center font-bold py-4 rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                DEMANDER UN DEVIS <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </span>
-            </Link>
+             {/* Empty bottom area as requested */}
           </div>
         </div>
       </div>

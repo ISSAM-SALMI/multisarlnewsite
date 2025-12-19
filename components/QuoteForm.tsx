@@ -95,25 +95,25 @@ ${formData.message}
       <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
         
         {/* Left Side: Info */}
-        <div className="bg-navy-900 dark:bg-navy-800 p-6 md:p-10 text-white md:w-2/5 flex flex-col justify-between relative overflow-hidden transition-colors">
+        <div className="bg-navy-900 dark:bg-navy-800 p-6 md:p-10 text-white md:w-2/5 flex flex-col justify-between relative overflow-hidden transition-colors text-center md:text-left">
           <div className="relative z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-6">Parlons de votre projet</h2>
             <p className="text-gray-300 mb-8 leading-relaxed">
               Recevez une estimation détaillée sous 24h. Nos ingénieurs analysent votre besoin pour vous proposer la solution technique la plus adaptée.
             </p>
             
-            <div className="space-y-4">
-              <div className="flex items-start gap-4">
-                <div className="w-1 h-12 bg-electric-red"></div>
+            <div className="space-y-6 md:space-y-4">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-4">
+                <div className="w-12 h-1 md:w-1 md:h-12 bg-electric-red rounded-full"></div>
                 <div>
-                  <h4 className="font-bold">Bureau d'étude</h4>
+                  <h4 className="font-bold text-lg md:text-base">Bureau d'étude</h4>
                   <p className="text-sm text-gray-400">Analyse technique & plans</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-1 h-12 bg-gray-700"></div>
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-3 md:gap-4">
+                <div className="w-12 h-1 md:w-1 md:h-12 bg-gray-700 rounded-full"></div>
                 <div>
-                  <h4 className="font-bold">Installation</h4>
+                  <h4 className="font-bold text-lg md:text-base">Installation</h4>
                   <p className="text-sm text-gray-400">Équipes qualifiées</p>
                 </div>
               </div>
@@ -254,7 +254,7 @@ ${formData.message}
             <button 
               type="submit" 
               disabled={status === 'loading' || status === 'success'}
-              className={`w-full font-bold py-4 rounded shadow-lg transition-all transform flex items-center justify-center gap-2 ${
+              className={`w-fit mx-auto px-8 font-bold py-3 text-sm rounded shadow-lg transition-all transform flex items-center justify-center gap-2 ${
                 status === 'loading' 
                   ? 'bg-gray-400 cursor-not-allowed' 
                   : status === 'success'

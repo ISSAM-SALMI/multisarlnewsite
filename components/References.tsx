@@ -56,17 +56,17 @@ export function References() {
           Nous sommes fiers d'accompagner ces entreprises leaders dans leur développement technologique et infrastructurel.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
-            <CheckCircle2 className="w-5 h-5 text-green-500" />
+        <div className="flex flex-col md:flex-row justify-center items-start md:items-center gap-2 md:gap-8 w-fit mx-auto">
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium text-sm md:text-base">
+            <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
             <span>Partenariats Durables</span>
           </div>
-          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
-            <CheckCircle2 className="w-5 h-5 text-green-500" />
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium text-sm md:text-base">
+            <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
             <span>Expertise Reconnue</span>
           </div>
-          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium">
-            <CheckCircle2 className="w-5 h-5 text-green-500" />
+          <div className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium text-sm md:text-base">
+            <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
             <span>Support Premium</span>
           </div>
         </div>

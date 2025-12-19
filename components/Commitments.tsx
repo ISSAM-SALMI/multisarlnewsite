@@ -4,54 +4,55 @@ import { Shield, Clock, Award, PenTool, CheckCircle, HeartHandshake, History, Fi
 export const Commitments: React.FC = () => {
   const items = [
     {
-      icon: <Shield className="w-10 h-10 mb-4 text-electric-red" />,
+      icon: <Shield className="w-6 h-6 md:w-8 md:h-8 mb-2 text-electric-red" />,
       title: "Qualité des installations",
       text: "Excellence technique et finitions soignées pour des installations durables."
     },
     {
-      icon: <CheckCircle className="w-10 h-10 mb-4 text-electric-red" />,
+      icon: <CheckCircle className="w-6 h-6 md:w-8 md:h-8 mb-2 text-electric-red" />,
       title: "Sécurité & Conformité",
       text: "Respect strict des normes de sécurité et réglementations en vigueur."
     },
     {
-      icon: <Clock className="w-10 h-10 mb-4 text-electric-red" />,
+      icon: <Clock className="w-6 h-6 md:w-8 md:h-8 mb-2 text-electric-red" />,
       title: "Rapidité d’exécution",
       text: "Respect des délais et intervention rapide pour vos urgences."
     },
     {
-      icon: <Award className="w-10 h-10 mb-4 text-electric-red" />,
+      icon: <Award className="w-6 h-6 md:w-8 md:h-8 mb-2 text-electric-red" />,
       title: "Matériel certifié et durable",
       text: "Utilisation exclusive de composants de marques reconnues."
     },
     {
-      icon: <PenTool className="w-10 h-10 mb-4 text-electric-red" />,
+      icon: <PenTool className="w-6 h-6 md:w-8 md:h-8 mb-2 text-electric-red" />,
       title: "Solutions clés en main",
-      text: "Prise en charge globale de l'étude à la mise en service."
+      text: "Prise en charge globale de l'étude à la mise en service.",
+      className: "hidden md:flex"
     }
   ];
 
   return (
-    <div className="container mx-auto px-4 md:px-6 py-12 md:py-20">
-      <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy-900 dark:text-white mb-4 transition-colors">
+    <div className="container mx-auto px-4 md:px-6 py-8 md:py-16">
+      <div className="text-center mb-8 md:mb-12 max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy-900 dark:text-white mb-3 transition-colors">
           Nos Engagements
         </h2>
-        <div className="h-1 w-20 bg-electric-red mx-auto mb-6"></div>
-        <p className="text-gray-600 dark:text-gray-400 text-lg transition-colors">
+        <div className="h-1 w-20 bg-electric-red mx-auto mb-4"></div>
+        <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg transition-colors">
           Votre confiance est notre priorité absolue.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center md:text-left mb-16">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-8 text-center md:text-left mb-8 md:mb-16">
         {items.map((item, idx) => (
-          <div key={idx} className="flex flex-col items-center md:items-start group p-4 rounded-lg hover:bg-white dark:hover:bg-navy-800/50 transition-colors">
+          <div key={idx} className={`flex flex-col items-center md:items-start group p-2 md:p-4 rounded-lg hover:bg-white dark:hover:bg-navy-800/50 transition-colors ${item.className || ''}`}>
             <div className="transform group-hover:scale-110 transition-transform duration-300">
               {item.icon}
             </div>
-            <h3 className="text-lg font-bold mb-3 text-navy-900 dark:text-white leading-tight transition-colors">
+            <h3 className="text-sm md:text-lg font-bold mb-2 text-navy-900 dark:text-white leading-tight transition-colors">
               {item.title}
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed transition-colors">
+            <p className="text-gray-600 dark:text-gray-400 text-xs md:text-sm leading-relaxed transition-colors">
               {item.text}
             </p>
           </div>
@@ -59,20 +60,20 @@ export const Commitments: React.FC = () => {
       </div>
 
       {/* Guarantees Bar */}
-      <div className="border-t border-gray-200 dark:border-navy-700 pt-10 transition-colors">
-        <h3 className="text-xl font-bold text-center text-navy-900 dark:text-white mb-8 transition-colors">Nos Garanties</h3>
-        <div className="flex flex-wrap justify-center gap-6 md:gap-12">
-          <div className="flex items-center gap-3 bg-white dark:bg-navy-800 px-6 py-3 rounded-full border border-gray-200 dark:border-navy-700 shadow-sm transition-colors">
-             <FileCheck className="text-blue-500 dark:text-blue-400 w-5 h-5" />
-             <span className="font-semibold text-navy-900 dark:text-gray-200 transition-colors">Agrément BT-MT</span>
+      <div className="border-t border-gray-200 dark:border-navy-700 pt-6 md:pt-10 transition-colors">
+        <h3 className="text-lg md:text-xl font-bold text-center text-navy-900 dark:text-white mb-6 md:mb-8 transition-colors">Nos Garanties</h3>
+        <div className="grid grid-cols-3 gap-3 md:gap-8 max-w-4xl mx-auto">
+          <div className="flex flex-col items-center justify-center gap-2 bg-white dark:bg-navy-800 p-3 md:p-6 rounded-xl border border-gray-200 dark:border-navy-700 shadow-sm transition-colors hover:shadow-md">
+             <FileCheck className="text-blue-500 dark:text-blue-400 w-6 h-6 md:w-8 md:h-8" />
+             <span className="font-semibold text-xs md:text-base text-navy-900 dark:text-gray-200 transition-colors text-center leading-tight">Agrément<br className="md:hidden"/> BT-MT</span>
           </div>
-          <div className="flex items-center gap-3 bg-white dark:bg-navy-800 px-6 py-3 rounded-full border border-gray-200 dark:border-navy-700 shadow-sm transition-colors">
-             <HeartHandshake className="text-blue-500 dark:text-blue-400 w-5 h-5" />
-             <span className="font-semibold text-navy-900 dark:text-gray-200 transition-colors">Équipe qualifiée</span>
+          <div className="flex flex-col items-center justify-center gap-2 bg-white dark:bg-navy-800 p-3 md:p-6 rounded-xl border border-gray-200 dark:border-navy-700 shadow-sm transition-colors hover:shadow-md">
+             <HeartHandshake className="text-blue-500 dark:text-blue-400 w-6 h-6 md:w-8 md:h-8" />
+             <span className="font-semibold text-xs md:text-base text-navy-900 dark:text-gray-200 transition-colors text-center leading-tight">Équipe<br className="md:hidden"/> qualifiée</span>
           </div>
-           <div className="flex items-center gap-3 bg-white dark:bg-navy-800 px-6 py-3 rounded-full border border-gray-200 dark:border-navy-700 shadow-sm transition-colors">
-             <History className="text-blue-500 dark:text-blue-400 w-5 h-5" />
-             <span className="font-semibold text-navy-900 dark:text-gray-200 transition-colors">15 ans d’expérience</span>
+           <div className="flex flex-col items-center justify-center gap-2 bg-white dark:bg-navy-800 p-3 md:p-6 rounded-xl border border-gray-200 dark:border-navy-700 shadow-sm transition-colors hover:shadow-md">
+             <History className="text-blue-500 dark:text-blue-400 w-6 h-6 md:w-8 md:h-8" />
+             <span className="font-semibold text-xs md:text-base text-navy-900 dark:text-gray-200 transition-colors text-center leading-tight">15 ans<br className="md:hidden"/> d’expérience</span>
           </div>
         </div>
       </div>

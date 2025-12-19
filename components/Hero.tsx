@@ -28,12 +28,20 @@ export const Hero: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           
           {/* Status Badge */}
-          <div className="inline-flex items-center gap-2 bg-navy-800/50 backdrop-blur-md border border-navy-700/50 rounded-full pl-2 pr-4 py-1 mb-6 animate-fade-in-up mx-auto" style={{animationDelay: '0.1s'}}>
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric-red opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-electric-red"></span>
-            </span>
-            <span className="text-gray-300 font-medium text-[10px] sm:text-xs tracking-widest uppercase">Intervention 24/7 au Maroc</span>
+          <div className="flex flex-col items-center gap-2 mb-6 animate-fade-in-up mx-auto" style={{animationDelay: '0.1s'}}>
+            <div className="inline-flex items-center gap-2 bg-navy-800/50 backdrop-blur-md border border-navy-700/50 rounded-full pl-2 pr-4 py-1">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-electric-red opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-electric-red"></span>
+              </span>
+              <span className="text-gray-300 font-medium text-[10px] sm:text-xs tracking-widest uppercase">Intervention 24/7 au Maroc</span>
+            </div>
+            
+            {/* Mobile Zone Display */}
+            <div className="md:hidden flex items-center gap-2 text-green-400 bg-green-500/10 px-3 py-1 rounded-full border border-green-500/20">
+              <MapPin className="w-3 h-3" />
+              <span className="text-[10px] font-semibold uppercase tracking-wider">Zone: Partout au Maroc</span>
+            </div>
           </div>
 
           {/* Typography */}
@@ -84,9 +92,9 @@ export const Hero: React.FC = () => {
       {/* Bottom Tech Stats Bar */}
       <div className="absolute bottom-0 left-0 w-full z-20 bg-navy-950/90 backdrop-blur-md border-t border-navy-800 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
         <div className="container mx-auto px-4 py-4 md:py-6">
-           <div className="flex flex-wrap md:flex-nowrap justify-center items-center gap-6 md:gap-12 text-gray-400">
+           <div className="flex flex-nowrap md:flex-nowrap justify-center items-center gap-4 md:gap-12 text-gray-400 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
              
-             <div className="flex items-center gap-3 group min-w-[140px] justify-center md:justify-start">
+             <div className="flex items-center gap-2 md:gap-3 group min-w-fit md:min-w-[140px] justify-start flex-shrink-0">
                <div className="p-1.5 md:p-2 bg-navy-800 rounded-lg group-hover:bg-electric-red/10 transition-colors">
                   <Zap className="w-4 h-4 md:w-5 md:h-5 text-electric-red" />
                </div>
@@ -98,7 +106,7 @@ export const Hero: React.FC = () => {
              
              <div className="hidden md:block w-px h-8 bg-navy-800"></div>
 
-             <div className="flex items-center gap-3 group min-w-[140px] justify-center md:justify-start">
+             <div className="flex items-center gap-2 md:gap-3 group min-w-fit md:min-w-[140px] justify-start flex-shrink-0">
                <div className="p-1.5 md:p-2 bg-navy-800 rounded-lg group-hover:bg-blue-500/10 transition-colors">
                   <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-blue-400" />
                </div>
@@ -110,7 +118,7 @@ export const Hero: React.FC = () => {
              
              <div className="hidden md:block w-px h-8 bg-navy-800"></div>
 
-              <div className="flex items-center gap-3 group min-w-[140px] justify-center md:justify-start">
+              <div className="hidden md:flex items-center gap-2 md:gap-3 group min-w-fit md:min-w-[140px] justify-start flex-shrink-0">
                <div className="p-1.5 md:p-2 bg-navy-800 rounded-lg group-hover:bg-green-500/10 transition-colors">
                   <MapPin className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
                </div>

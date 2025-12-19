@@ -45,28 +45,28 @@ export const EVService: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-navy-900 pt-24 pb-12">
+    <div className="min-h-screen bg-slate-50 dark:bg-navy-900 pt-20 pb-10 md:pt-24 md:pb-12">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-16">
+        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-16">
           <div className="inline-flex items-center justify-center p-3 bg-green-100 dark:bg-green-900/30 rounded-xl mb-6">
             <BatteryCharging className="w-8 h-8 text-green-600" />
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
+          <h1 className="text-2xl md:text-5xl font-bold text-navy-900 dark:text-white mb-6">
             Bornes de Recharge Électrique (IRVE)
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
             Installation, sécurisation et solutions intelligentes
           </p>
         </div>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-center">
-          <div>
-            <h2 className="text-3xl font-bold text-navy-900 dark:text-white mb-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 mb-16 md:mb-20 items-start">
+          <div className="text-center md:text-left">
+            <h2 className="text-2xl md:text-3xl font-bold text-navy-900 dark:text-white mb-6">
               Présentation générale
             </h2>
-            <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 space-y-4">
+            <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 space-y-4 text-base md:text-lg">
               <p>
                 Le service Bornes de Recharge Électrique (IRVE) de MULTIRESAUX accompagne les entreprises, collectivités, promoteurs, hôtels, parkings, copropriétés et particuliers dans la mise en place de solutions de recharge fiables, sécurisées et évolutives pour véhicules électriques et hybrides rechargeables.
               </p>
@@ -83,7 +83,7 @@ export const EVService: React.FC = () => {
                   "Équipements certifiés et performants",
                   "Accompagnement de A à Z"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-3">
+                  <div key={index} className="flex flex-col md:flex-row items-center md:items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
                     <span>{item}</span>
                   </div>
@@ -91,7 +91,7 @@ export const EVService: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="relative h-[300px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
+          <div className="relative h-[250px] md:h-[500px] rounded-2xl overflow-hidden shadow-2xl group">
             <img 
               src="/images/BorneC/image (1).jpg" 
               alt="Borne de Recharge" 
@@ -102,12 +102,12 @@ export const EVService: React.FC = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-navy-900 dark:text-white mb-12">Nos Solutions de Recharge</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mb-16 md:mb-20">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-navy-900 dark:text-white mb-8 md:mb-12">Nos Solutions de Recharge</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white dark:bg-navy-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-navy-700 group hover:-translate-y-1">
-                <div className="w-12 h-12 bg-green-50 dark:bg-navy-700 rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+              <div key={index} className="bg-white dark:bg-navy-800 p-6 md:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-navy-700 group hover:-translate-y-1 text-center md:text-left">
+                <div className="w-12 h-12 bg-green-50 dark:bg-navy-700 rounded-lg flex items-center justify-center mb-6 mx-auto md:mx-0 group-hover:scale-110 transition-transform">
                   {feature.icon}
                 </div>
                 <h3 className="text-xl font-bold text-navy-900 dark:text-white mb-3">{feature.title}</h3>
@@ -120,13 +120,13 @@ export const EVService: React.FC = () => {
         </div>
 
         {/* Gallery Section */}
-        <div className="mb-20">
-          <h2 className="text-3xl font-bold text-center text-navy-900 dark:text-white mb-12">Réalisations en Images</h2>
+        <div className="mb-16 md:mb-20">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-navy-900 dark:text-white mb-8 md:mb-12">Réalisations en Images</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {galleryImages.map((imgName, index) => (
               <div 
                 key={index} 
-                className="relative h-64 rounded-xl overflow-hidden group cursor-pointer"
+                className="relative h-48 md:h-64 rounded-xl overflow-hidden group cursor-pointer"
                 onClick={() => setSelectedImage(`/images/BorneC/${imgName}`)}
               >
                 <img 
@@ -164,18 +164,18 @@ export const EVService: React.FC = () => {
         )}
 
         {/* CTA */}
-        <div className="bg-navy-900 rounded-3xl p-12 text-center relative overflow-hidden">
+        <div className="bg-navy-900 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -ml-16 -mb-16"></div>
           
           <div className="relative z-10">
-            <h2 className="text-3xl font-bold text-white mb-6">Passez à la mobilité électrique</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Passez à la mobilité électrique</h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
               Étude, installation et maintenance de vos bornes de recharge par des experts certifiés.
             </p>
             <Link 
               to="/#contact" 
-              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-8 rounded-full transition-all transform hover:-translate-y-1 shadow-lg shadow-green-900/50"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 md:py-4 md:px-8 rounded-full transition-all transform hover:-translate-y-1 shadow-lg shadow-green-900/50 text-sm md:text-base"
             >
               Demander une étude <ArrowRight className="w-5 h-5" />
             </Link>
