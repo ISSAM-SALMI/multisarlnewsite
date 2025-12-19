@@ -12,8 +12,8 @@ export function References() {
       logo: '/images/References/distrigo parts distribution.png',
     },
     {
-      name: 'Smart Tourisme',
-      logo: '/images/References/logo-smart-tourisme.png',
+      name: 'Corniche',
+      logo: '/images/References/Corniche-01.png',
     },
     {
       name: 'OCP',
@@ -26,6 +26,10 @@ export function References() {
     {
       name: 'SICR',
       logo: '/images/References/SICR-logo.png',
+    },
+    {
+      name: 'Logoo',
+      logo: '/images/References/logoo.png',
     },
   ];
 
