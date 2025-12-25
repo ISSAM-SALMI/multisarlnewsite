@@ -41,7 +41,11 @@ export const Catalog: React.FC = () => {
             Matériel certifié et disponible immédiatement pour vos besoins temporaires ou durables.
           </p>
         </div>
-        <a href="#contact" className="inline-flex px-6 py-3 bg-navy-900 dark:bg-white text-white dark:text-navy-900 font-bold rounded hover:bg-navy-800 dark:hover:bg-gray-100 transition-colors mt-6 md:mt-0 mx-auto md:mx-0">
+        <a
+          href="/pdf/catalogue.pdf"
+          download
+          className="inline-flex px-6 py-3 bg-navy-900 dark:bg-white text-white dark:text-navy-900 font-bold rounded hover:bg-navy-800 dark:hover:bg-gray-100 transition-colors mt-6 md:mt-0 mx-auto md:mx-0"
+        >
           Demander le catalogue PDF
         </a>
       </div>
